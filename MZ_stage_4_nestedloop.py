@@ -4,7 +4,15 @@ from openai import OpenAI
 def MZ_stage_4_nestedloop():
     st.title("MZ stage4. 중첩반복문 Teaching")
 
-    client = OpenAI(api_key=st.secrets['api']['key'])
+    # 사이드바에서 API 키 입력 받기
+    st.sidebar.header("API 설정")
+    api_key_input = st.sidebar.text_input("OpenAI API Key", type="password")
+
+    if not api_key_input:
+        st.warning("API 키를 사이드바에 입력해주세요.")
+        return
+
+    client = OpenAI(api_key=api_key_input)
 
     system_content = '''
     파이썬의 'while문'을 사용할 수 없다.

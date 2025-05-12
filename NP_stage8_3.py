@@ -4,7 +4,15 @@ from openai import OpenAI
 def NP_stage_8_3():
     st.title("NP stage8-3. (x+y)%5==0 패턴 Teaching")
 
-    client = OpenAI(api_key=st.secrets['api']['key'])
+    # 사이드바에서 API 키 입력 받기
+    st.sidebar.header("API 설정")
+    api_key_input = st.sidebar.text_input("OpenAI API Key", type="password")
+
+    if not api_key_input:
+        st.warning("API 키를 사이드바에 입력해주세요.")
+        return
+
+    client = OpenAI(api_key=api_key_input)
     
     system_content = '''
     <사전 설정>

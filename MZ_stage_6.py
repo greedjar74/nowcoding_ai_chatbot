@@ -4,7 +4,15 @@ from openai import OpenAI
 def MZ_stage_6():
     st.title("MZ stage6. else문 Teaching")
 
-    client = OpenAI(api_key=st.secrets['api']['key'])
+    # 사이드바에서 API 키 입력 받기
+    st.sidebar.header("API 설정")
+    api_key_input = st.sidebar.text_input("OpenAI API Key", type="password")
+
+    if not api_key_input:
+        st.warning("API 키를 사이드바에 입력해주세요.")
+        return
+
+    client = OpenAI(api_key=api_key_input)
 
     system_content = '''
     너는 <else문 설명>'이 주어지기 전에는 문제를 풀 수 없다.

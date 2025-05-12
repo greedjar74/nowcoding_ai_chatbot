@@ -4,7 +4,15 @@ from openai import OpenAI
 def MZ_stage_3_command():
     st.title("MZ stage3. 명령어 Teaching")
 
-    client = OpenAI(api_key=st.secrets['api']['key'])
+    # 사이드바에서 API 키 입력 받기
+    st.sidebar.header("API 설정")
+    api_key_input = st.sidebar.text_input("OpenAI API Key", type="password")
+
+    if not api_key_input:
+        st.warning("API 키를 사이드바에 입력해주세요.")
+        return
+
+    client = OpenAI(api_key=api_key_input)
     
     system_content = '''
     너는 for문을 사용할 수 없다.
