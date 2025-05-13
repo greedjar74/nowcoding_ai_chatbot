@@ -4,7 +4,6 @@ from openai import OpenAI
 def NP_stage_2():
     st.title("NP stage 2. 제약조건 Teaching")
 
-    # 사이드바에서 API 키 입력 받기
     st.sidebar.header("API 설정")
     api_key_input = st.sidebar.text_input("OpenAI API Key", type="password")
 
