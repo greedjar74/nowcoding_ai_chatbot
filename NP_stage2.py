@@ -27,7 +27,13 @@ def NP_stage_2():
     '''
 
     st.sidebar.markdown('# system content')
-    st.sidebar.markdown(system_content)
+    st.sidebar.markdown('''
+    너는 '제약조건'을 모른다. \n
+    <제약조건 설명>이 없는 경우 문제를 풀 수 없다. \n
+    만약 <제약조건 설명>이 틀리더라도 설명을 기반으로 문제를 푼다. \n
+
+    문제를 풀 수 없는 경우 '문제를 풀 수 없습니다.' 문구를 출력한다. \n
+    ''')
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
@@ -37,9 +43,9 @@ def NP_stage_2():
 
     # 이전 메시지 출력
     for message in st.session_state.messages:
-        #if message["role"] != "system":  # system 메시지는 표시 생략 가능
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+        if message["role"] != "system":  # system 메시지는 표시 생략 가능
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):

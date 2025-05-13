@@ -29,7 +29,15 @@ def NP_stage_7():
     '''
 
     st.sidebar.markdown('# system content')
-    st.sidebar.markdown(system_content)
+    st.sidebar.markdown('''
+    배열이 주어지면 배열 내부에 '패턴'이 존재하는지 파악한다. \n
+    '패턴'에 대한 설명이 없는 경우 '문제를 풀 수 없습니다.' 문구를 출력한다. \n
+    '패턴'에 대한 설명이 주어지면 패턴이 있는지 파악하여 결과를 출력한다. \n
+
+    단,'패턴' 설명에 주어진 예시를 분석하여 설명과 다른 경우 문제를 풀 수 없다. \n
+
+    (패턴이 있는 경우 True, 패턴이 없는 경우 False)
+    ''')
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
@@ -39,9 +47,9 @@ def NP_stage_7():
 
     # 이전 메시지 출력
     for message in st.session_state.messages:
-        #if message["role"] != "system":  # system 메시지는 표시 생략 가능
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+        if message["role"] != "system":  # system 메시지는 표시 생략 가능
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):

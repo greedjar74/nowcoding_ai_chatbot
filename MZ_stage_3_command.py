@@ -29,7 +29,15 @@ def MZ_stage_3_command():
     '''
 
     st.sidebar.markdown('# system content')
-    st.sidebar.markdown(system_content)
+    st.sidebar.markdown('''
+    너는 for문을 사용할 수 없다.
+
+    너는 아바타를 제어하는 명령어를 모른다.\n
+    설명이 주어지지 않은 명령어는 사용할 수 없으며 '명령어를 모릅니다.' 문구를 출력한다.\n
+    만약 명령어에 대한 설명이 틀리더라도 설명을 기준으로 명령어를 선택하여 파이썬 코드를 작성한다.\n
+
+    \# 문제를 풀 때 함수를 정의하지 않는다.
+    ''')
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
@@ -39,9 +47,9 @@ def MZ_stage_3_command():
 
     # 이전 메시지 출력
     for message in st.session_state.messages:
-        # if message["role"] != "system":  # system 메시지는 표시 생략 가능
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+        if message["role"] != "system":  # system 메시지는 표시 생략 가능
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
