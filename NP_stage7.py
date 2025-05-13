@@ -50,6 +50,9 @@ def NP_stage_7():
             st.markdown(prompt)
 
         with st.chat_message("assistant"):
+            placeholder = st.empty()
+            placeholder.markdown("답변을 생성하고 있습니다...")
+
             stream = client.chat.completions.create(
                 model=gpt_model,
                 messages=[
@@ -58,6 +61,6 @@ def NP_stage_7():
                 ],
                 stream=True,
             )
-            response = st.write_stream(stream)
+            response = placeholder.write_stream(stream)
 
         st.session_state.messages.append({"role": "assistant", "content": response})
