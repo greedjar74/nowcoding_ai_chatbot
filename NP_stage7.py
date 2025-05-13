@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 
 def NP_stage_7():
-    st.title("NP stage7. x, y 연산 패턴 Teaching")
+    st.title("NP stage 7. x, y 연산 패턴 Teaching")
 
     # 사이드바에서 API 키 입력 받기
     st.sidebar.header("API 설정")

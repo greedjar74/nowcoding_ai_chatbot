@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 
 def NP_stage_8_3():
-    st.title("NP stage8-3. (x+y)%5==0 패턴 Teaching")
+    st.title("NP stage 8-3. (x+y)%5==0 패턴 Teaching")
 
     # 사이드바에서 API 키 입력 받기
     st.sidebar.header("API 설정")

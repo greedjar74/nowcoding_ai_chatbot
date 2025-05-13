@@ -10,13 +10,13 @@ from MZ_stage_7 import MZ_stage_7
 
 def MZ_main():
     stages = [
-        'MZ stage3. 명령어 Teaching',
-        'MZ stage3. for문 Teaching',
-        'MZ stage4. 중첩반복문 Teaching',
-        'MZ stage4. while, NotDone() Teaching',
-        'MZ stage5. if문, 조건 명령어 Teaching',
-        'MZ stage6. else문 Teaching',
-        'MZ stage7. elif문, 갈림길 명령어 Teaching'
+        'MZ stage 3. 명령어 Teaching',
+        'MZ stage 3. for문 Teaching',
+        'MZ stage 4. 중첩반복문 Teaching',
+        'MZ stage 4. while, NotDone() Teaching',
+        'MZ stage 5. if문, 조건 명령어 Teaching',
+        'MZ stage 6. else문 Teaching',
+        'MZ stage 7. elif문, 갈림길 명령어 Teaching'
     ]
 
     # 현재 선택된 페이지
@@ -30,17 +30,17 @@ def MZ_main():
         st.session_state.previous_stage = selected_stage
 
     # 각 페이지 연결
-    if selected_stage == 'MZ stage3. 명령어 Teaching':
+    if selected_stage == 'MZ stage 3. 명령어 Teaching':
         MZ_stage_3_command()
-    elif selected_stage == 'MZ stage3. for문 Teaching':
+    elif selected_stage == 'MZ stage 3. for문 Teaching':
         MZ_stage_3_for()
-    elif selected_stage == 'MZ stage4. 중첩반복문 Teaching':
+    elif selected_stage == 'MZ stage 4. 중첩반복문 Teaching':
         MZ_stage_4_nestedloop()
-    elif selected_stage == 'MZ stage4. while, NotDone() Teaching':
+    elif selected_stage == 'MZ stage 4. while, NotDone() Teaching':
         MZ_stage_4_while_notDone()
-    elif selected_stage == 'MZ stage5. if문, 조건 명령어 Teaching':
+    elif selected_stage == 'MZ stage 5. if문, 조건 명령어 Teaching':
         MZ_stage_5()
-    elif selected_stage == 'MZ stage6. else문 Teaching':
+    elif selected_stage == 'MZ stage 6. else문 Teaching':
         MZ_stage_6()
     else:
         MZ_stage_7()
