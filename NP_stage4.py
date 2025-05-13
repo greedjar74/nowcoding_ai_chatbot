@@ -38,7 +38,7 @@ def NP_stage_4():
 
     # 이전 메시지 출력
     for message in st.session_state.messages:
-        if message["role"] != "system":  # system 메시지는 표시 생략 가능
+        #if message["role"] != "system":  # system 메시지는 표시 생략 가능
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
 
