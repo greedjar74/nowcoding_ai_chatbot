@@ -23,6 +23,9 @@ def NP_stage_4():
     문제를 풀 수 없는 경우 '문제를 풀 수 없습니다.' 문구를 출력한다.
     '''
 
+    st.sidebar.markdown('# system content')
+    st.sidebar.markdown(system_content)
+    
     gpt_model = 'gpt-4.1-mini'
 
     # ✅ system message를 포함한 초기화

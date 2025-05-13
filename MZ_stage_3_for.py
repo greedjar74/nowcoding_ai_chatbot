@@ -28,6 +28,9 @@ def MZ_stage_3_for():
     turnRight(): 아바타를 오른쪽으로 90도 회전시킨다.
     '''
 
+    st.sidebar.markdown('# system content')
+    st.sidebar.markdown(system_content)
+
     gpt_model = 'gpt-4.1-mini'
 
     # ✅ system message를 포함한 초기화

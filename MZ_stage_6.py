@@ -31,6 +31,9 @@ def MZ_stage_6():
     notDone(): 아바타가 도착지에 도착했는지 파악한다. 도착하지 못한 경우 True
     '''
 
+    st.sidebar.markdown('# system content')
+    st.sidebar.markdown(system_content)
+
     gpt_model = 'gpt-4.1-mini'
 
     # ✅ system message를 포함한 초기화

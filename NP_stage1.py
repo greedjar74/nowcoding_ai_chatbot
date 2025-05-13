@@ -28,6 +28,9 @@ def NP_stage_1():
     # 함수를 정희하지 않고 코드를 작성한다.
     '''
 
+    st.sidebar.markdown('# system content')
+    st.sidebar.markdown(system_content)
+
     gpt_model = 'gpt-4.1-mini'
 
     # ✅ system message를 포함한 초기화

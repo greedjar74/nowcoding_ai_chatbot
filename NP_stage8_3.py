@@ -52,6 +52,9 @@ def NP_stage_8_3():
     # 문제를 풀 수 없는 경우 '문제를 풀 수 없습니다.' 문구 출력
     '''
 
+    st.sidebar.markdown('# system content')
+    st.sidebar.markdown(system_content)
+
     gpt_model = 'o4-mini'
 
     # ✅ system message를 포함한 초기화

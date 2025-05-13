@@ -24,6 +24,9 @@ def MZ_stage_3_command():
     # 문제를 풀 때 함수를 정의하지 않는다.
     '''
 
+    st.sidebar.markdown('# system content')
+    st.sidebar.markdown(system_content)
+
     gpt_model = 'gpt-4.1-mini'
 
     # ✅ system message를 포함한 초기화

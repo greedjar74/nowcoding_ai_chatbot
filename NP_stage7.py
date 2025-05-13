@@ -24,6 +24,9 @@ def NP_stage_7():
     (패턴이 있는 경우 True, 패턴이 없는 경우 False)
     '''
 
+    st.sidebar.markdown('# system content')
+    st.sidebar.markdown(system_content)
+
     gpt_model = 'o4-mini'
 
     # ✅ system message를 포함한 초기화
