@@ -4,6 +4,7 @@ from openai import OpenAI
 def MZ_stage_5():
     st.title("MZ stage 5. if문 & 조건 명령어 Teaching")
 
+    # 사이드바에서 API 키 입력 받기
     st.sidebar.header("API 설정")
     api_key_input = st.sidebar.text_input("OpenAI API Key", type="password")
 

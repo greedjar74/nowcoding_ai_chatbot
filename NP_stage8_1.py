@@ -4,6 +4,7 @@ from openai import OpenAI
 def NP_stage_8_1():
     st.title("NP stage 8-1. 세로 직선 패턴 Teaching")
 
+    # 사이드바에서 API 키 입력 받기
     st.sidebar.header("API 설정")
     api_key_input = st.sidebar.text_input("OpenAI API Key", type="password")
 
