@@ -44,8 +44,8 @@ def NP_stage_1():
     # 이전 메시지 출력
     for message in st.session_state.messages:
         #if message["role"] != "system":  # system 메시지는 표시 생략 가능
-            with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
