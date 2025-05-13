@@ -67,7 +67,7 @@ def NP_stage_8_2():
                 st.markdown(message["content"])
 
     # 사용자 입력 처리
-    if prompt := st.chat_input("What is up?"):
+    if prompt := st.chat_input("AI Teaching을 진행하세요!"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.markdown(prompt)
