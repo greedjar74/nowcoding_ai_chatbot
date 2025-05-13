@@ -44,7 +44,7 @@ def NP_main():
         NP_stage_5()
     elif selected_stage == 'NP stage 6. 직사각형 패턴 Teaching':
         NP_stage_6()
-    elif selected_stage == 'NP stage 7. x,y 연산 패턴 Teaching':
+    elif selected_stage == 'NP stage 7. x, y 연산 패턴 Teaching':
         NP_stage_7()
     elif selected_stage == 'NP stage 8-1. 종합(세로 직선 패턴)':
         NP_stage_8_1()
