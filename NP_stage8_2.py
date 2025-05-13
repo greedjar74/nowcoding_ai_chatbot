@@ -13,6 +13,10 @@ def NP_stage_8_2():
         return
 
     client = OpenAI(api_key=api_key_input)
+
+    gpt_model = 'o4-mini'
+    st.sidebar.markdown('# gpt model')
+    st.sidebar.markdown(gpt_model)
     
     system_content = '''
     <사전 설정>
@@ -49,8 +53,6 @@ def NP_stage_8_2():
 
     st.sidebar.markdown('# system content')
     st.sidebar.markdown(system_content)
-
-    gpt_model = 'o4-mini'
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:

@@ -13,6 +13,10 @@ def NP_stage_7():
         return
 
     client = OpenAI(api_key=api_key_input)
+
+    gpt_model = 'o4-mini'
+    st.sidebar.markdown('# gpt model')
+    st.sidebar.markdown(gpt_model)
     
     system_content = '''
     배열이 주어지면 배열 내부에 '패턴'이 존재하는지 파악한다.
@@ -26,8 +30,6 @@ def NP_stage_7():
 
     st.sidebar.markdown('# system content')
     st.sidebar.markdown(system_content)
-
-    gpt_model = 'o4-mini'
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:

@@ -18,7 +18,7 @@ def NP_main():
               'NP stage4. for문 범위 설정 Teaching',
               'NP stage5. 대각선 패턴 Teaching', 
               'NP stage6. 직사각형 패턴 Teaching', 
-              'NP stage7. x,y 연산 패턴 Teaching', 
+              'NP stage7. x, y 연산 패턴 Teaching', 
               'NP stage8-1. 종합(세로 직선 패턴)',
               'NP stage8-2. 종합(정사각형 패턴)', 
               'NP stage8-3. 종합((x+y)%5==0 패턴)']

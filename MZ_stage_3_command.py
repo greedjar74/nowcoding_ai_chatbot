@@ -13,6 +13,10 @@ def MZ_stage_3_command():
         return
 
     client = OpenAI(api_key=api_key_input)
+
+    gpt_model = 'gpt-4.1-mini'
+    st.sidebar.markdown('# gpt model')
+    st.sidebar.markdown(gpt_model)
     
     system_content = '''
     너는 for문을 사용할 수 없다.
@@ -27,19 +31,11 @@ def MZ_stage_3_command():
     st.sidebar.markdown('# system content')
     st.sidebar.markdown(system_content)
 
-    gpt_model = 'gpt-4.1-mini'
-
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
         st.session_state.messages = [
             {"role": "system", "content": system_content}
         ]
-        
-    current_stage = "MZ stage3. 명령어 Teaching"
-    if st.session_state.get('selected_stage') != current_stage:
-        st.session_state.selected_stage = current_stage
-        st.session_state["openai_model"] = "gpt-4.1-mini"
-        st.session_state.messages = [{"role": "system", "content": system_content}]
 
     # 이전 메시지 출력
     for message in st.session_state.messages:

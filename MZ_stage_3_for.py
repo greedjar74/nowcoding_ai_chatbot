@@ -14,6 +14,10 @@ def MZ_stage_3_for():
 
     client = OpenAI(api_key=api_key_input)
 
+    gpt_model = 'gpt-4.1-mini'
+    st.sidebar.markdown('# gpt model')
+    st.sidebar.markdown(gpt_model)
+
     system_content = '''
     너는 파이썬의 'while문'을 사용할 수 없다. 
 
@@ -30,8 +34,6 @@ def MZ_stage_3_for():
 
     st.sidebar.markdown('# system content')
     st.sidebar.markdown(system_content)
-
-    gpt_model = 'gpt-4.1-mini'
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:

@@ -14,6 +14,10 @@ def MZ_stage_4_while_notDone():
 
     client = OpenAI(api_key=api_key_input)
 
+    gpt_model = 'gpt-4.1-mini'
+    st.sidebar.markdown('# gpt model')
+    st.sidebar.markdown(gpt_model)
+
     system_content = '''
     너는 'while문'에 대한 설명이 주어지기 전에는 문제를 풀 수 없다. 
     'while문'에 대한 설명이 주어지면 설명이 정확한지 분석하고 정확한 경우에만 'while문'을 사용할 수 있다. 
@@ -32,8 +36,6 @@ def MZ_stage_4_while_notDone():
 
     st.sidebar.markdown('# system content')
     st.sidebar.markdown(system_content)
-
-    gpt_model = 'gpt-4.1-mini'
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
