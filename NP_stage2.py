@@ -68,8 +68,6 @@ def NP_stage_2():
     for i in range(5):<br>
         &nbsp;&nbsp;&nbsp;&nbsp;erase(0, i)<br>
         &nbsp;&nbsp;&nbsp;&nbsp;erase(0, 0)
-
-
     ''', unsafe_allow_html=True)
 
     system_content = '''
