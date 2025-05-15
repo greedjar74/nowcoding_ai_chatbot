@@ -20,17 +20,17 @@ def NP_stage_4():
 
     st.sidebar.markdown("# 입력 prompt")
     st.sidebar.markdown('''
-    <범위설정 설명><br>
-    range(start, end, term): 'start'부터 'end'미만까지 'term'간격으로 증가한다.<br>
+    <범위설정 설명>
+    range(start, end, term): 'start'부터 'end'미만까지 'term'간격으로 증가한다.
 
-    [예시]<br>
-    for i in range(start, end, term):<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;동작 코드<br>
+    [예시]
+    for i in range(start, end, term):
+        &nbsp;&nbsp;&nbsp;&nbsp;동작 코드
 
 
-    <범위설정 설명>이 정확한 경우 '범위설정 설명을 이해했습니다.', 정확하지 않은 경우 '범위설정 설명을 이해하지 못했습니다.' 문구를 출력한다.<br>
-    ([예시]가 없거나 정확하지 않은 경우 이해할 수 없다.)<br>
-    (설명에서 range에 입력한 'end'보다 1 작은 값까지 수행된다는 설명이 정확히 표현되었는지 확인한다.)<br><br>
+    <범위설정 설명>이 정확한 경우 '범위설정 설명을 이해했습니다.', 정확하지 않은 경우 '범위설정 설명을 이해하지 못했습니다.' 문구를 출력한다.
+    ([예시]가 없거나 정확하지 않은 경우 이해할 수 없다.)
+    (설명에서 range에 입력한 'end'보다 1 작은 값까지 수행된다는 설명이 정확히 표현되었는지 확인한다.)
                         
     Test case <br>
     각 문제에 맞는 코드를 작성한다. 결과는 코드 또는 ‘제가 모르는 부분입니다.’만 출력한다.
