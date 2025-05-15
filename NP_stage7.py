@@ -17,45 +17,6 @@ def NP_stage_7():
     gpt_model = 'o4-mini'
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
-
-    st.sidebar.markdown("# 입력 prompt")
-    st.sidebar.markdown('''
-    <패턴 설명> <br>
-    패턴: ‘행 * 열’을 2로 나눈 나머지가 0인 위치는 모두 1이 저장되어 있다.
-
-    [예시]<br>
-    [[1, 1, 1, 1],<br>
-    [1, 0, 1, 0],<br>
-    [1, 1, 1, 1],<br>
-    [1, 0, 1, 0]]<br><br><br>
-
-
-
-    패턴을 이해했다면 ‘패턴을 이해했습니다.’ 이해하지 못했다면 ‘패턴을 이해하지 못했습니다.’ 문구 출력 <br>
-    단, 예시가 없거나 설명에 부합하지 않는 경우 패턴을 이해할 수 없다.<br>
-    (‘패턴을 이해하지 못했습니다.’ 문구 출력시 문제를 풀 수 없다.)<br><br>
-                        
-    Test case <br>
-    배열에 패턴이 존재하는지 파악한다. 결과는 True, False 또는 ‘문제를 풀 수 없습니다.’만 출력<br>
-    (<패턴 설명>에서 ‘패턴을 이해하지 못했습니다.’ 문구를 출력한 경우 문제를 풀 수 없다.)
-
-    #1. [[0, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]<br>
-    (결과는 True, False 또는 ‘문제를 풀 수 없습니다.’만 출력)<br>
-    (<패턴 설명>에서 ‘패턴을 이해하지 못했습니다.’ 문구를 출력한 경우 문제를 풀 수 없다.)
-
-    #2. [[1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]<br>
-    (결과는 True, False 또는 ‘문제를 풀 수 없습니다.’만 출력)<br>
-    (<패턴 설명>에서 ‘패턴을 이해하지 못했습니다.’ 문구를 출력한 경우 문제를 풀 수 없다.)
-
-
-    #3. [[1, 1, 1, 1, 1], [1, 0, 1, 0, 1], [1, 1, 1, 1, 1], [1, 0, 1, 0, 1], [1, 1, 1, 1, 1]]<br>
-    (결과는 True, False 또는 ‘문제를 풀 수 없습니다.’만 출력)<br>
-    (<패턴 설명>에서 ‘패턴을 이해하지 못했습니다.’ 문구를 출력한 경우 문제를 풀 수 없다.)
-
-    #4. [[0, 0, 0, 0, 0], [0, 1, 0, 1, 0], [0, 0, 0, 0, 0], [0, 1, 0, 1, 0], [0, 0, 0, 0, 0]]<br>
-    (결과는 True, False 또는 ‘문제를 풀 수 없습니다.’만 출력)<br>
-    (<패턴 설명>에서 ‘패턴을 이해하지 못했습니다.’ 문구를 출력한 경우 문제를 풀 수 없다.)
-    ''', unsafe_allow_html=True)
     
     system_content = '''
     배열이 주어지면 배열 내부에 '패턴'이 존재하는지 파악한다.
@@ -75,9 +36,9 @@ def NP_stage_7():
 
     # 이전 메시지 출력
     for message in st.session_state.messages:
-        #if message["role"] != "system":  # system 메시지는 표시 생략 가능
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+        if message["role"] != "system":  # system 메시지는 표시 생략 가능
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):

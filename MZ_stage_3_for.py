@@ -18,62 +18,6 @@ def MZ_stage_3_for():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
 
-    st.sidebar.markdown("# 입력 prompt")
-    st.sidebar.markdown('''
-    <for문 설명> <br>
-    for문: 동일한 행위를 반복적으로 수행할 때 사용한다.<br>
-
-    [예시]<br>
-    for 변수 in range(범위):<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;동작할 코드<br><br><br>
-
-
-
-    설명이 정확한 경우 'for문을 이해했습니다.', 정확하지 않은 경우 'for문을 이해하지 못했습니다.' 문구를 출력한다. <br>
-    (예시가 없거나 정확하지 않은 경우 이해할 수 없다.) <br>
-    (‘for문을 이해하지 못했습니다.’를 출력한 경우 'for문'을 사용하지 못한다.)<br><br>
-
-    Test case <br>
-    각 문제에 맞는 코드를 작성한다. 결과는 코드 또는 ‘제가 모르는 부분입니다.’만 출력한다.
-    이해했으면 ‘이해했습니다.’ 문구 출력
-
-    #1. MZ02PY001V <br>
-    [아바타를 앞으로 한 칸 이동시킨다.] <br>
-    [아바타를 왼쪽으로 90도 회전시킨다] <br>
-    [아바타를 앞으로 한 칸 이동시킨다.] <br>
-    [아바타를 앞으로 한 칸 이동시킨다.] <br>
-    [아바타를 오른쪽으로 90도 회전시킨다.] <br>
-    [[아바타를 앞으로 한 칸 이동시킨다.] 이 행위를 4번 반복한다.] <br>
-    [아바타를 왼쪽으로 90도 회전시킨다.] <br>
-    [아바타를 앞으로 한 칸 이동시킨다.] <br>
-    [아바타를 앞으로 한 칸 이동시킨다.] <br>
-    [아바타를 왼쪽으로 90도 회전시킨다.] <br>
-    [[아바타를 앞으로 한 칸 이동시킨다.] 이 행위를 5번 반복한다.] <br>
-    (코드만 출력)
-
-    #2. MZ02PY002 <br>
-    [[아바타를 앞으로 한 칸 이동시킨다.] 이 행위를 4번 반복한다.] <br>
-    [아바타를 오른쪽으로 90도 회전시킨다.]<br>
-    [[아바타를 앞으로 한 칸 이동시킨다.] 이 행위를 5번 반복한다.] <br>
-    [아바타를 오른쪽으로 90도 회전시킨다.] <br>
-    [[아바타를 앞으로 한 칸 이동시킨다.] 이 행위를 5번 반복한다.]<br>
-    (코드만 출력)
-
-    #3. MZ02PY015 <br>
-    [[아바타를 앞으로 한 칸 이동시킨다.] 이 행위를 3번 반복한다.] <br>
-    [아바타를 왼쪽으로 90도 회전시킨다.] <br>
-    [아바타를 앞으로 한 칸 이동시킨다.] <br>
-    [아바타를 앞으로 한 칸 이동시킨다.]<br>
-    [아바타를 왼쪽으로 90도 회전시킨다.] <br>
-    [[아바타를 앞으로 한 칸 이동시킨다.] 이 행위를 4번 반복한다.]<br>
-    [아바타를 왼쪽으로 90도 회전시킨다.] <br>
-    [[아바타를 앞으로 한 칸 이동시킨다.] 이 행위를 3번 반복한다.] <br>
-    [아바타를 오른쪽으로 90도 회전시킨다.] <br>
-    [아바타를 앞으로 한 칸 이동시킨다.]<br>
-    (코드만 출력)
-
-    ''', unsafe_allow_html=True)
-
     system_content = '''
     너는 파이썬의 'while문'을 사용할 수 없다. 
 
@@ -96,9 +40,9 @@ def MZ_stage_3_for():
 
     # 이전 메시지 출력
     for message in st.session_state.messages:
-        #if message["role"] != "system":  # system 메시지는 표시 생략 가능
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+        if message["role"] != "system":  # system 메시지는 표시 생략 가능
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
