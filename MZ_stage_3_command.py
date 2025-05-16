@@ -14,19 +14,31 @@ def MZ_stage_3_command():
 
     client = OpenAI(api_key=api_key_input)
 
+    # 모델 설정 및 표시
     gpt_model = 'gpt-4.1-mini'
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
+
+    # system content 설정
+    with open('system_contents\MZ_stage_3_command.txt', 'r', encoding='utf-8') as f:
+        system_content = f.read()
     
-    system_content = '''
-    너는 for문을 사용할 수 없다.
+    st.sidebar.markdown("# System Content")
+    st.sidebar.text(system_content)
 
-    너는 아바타를 제어하는 명령어를 모른다.
-    설명이 주어지지 않은 명령어는 사용할 수 없으며 '명령어를 모릅니다.' 문구를 출력한다.
-    만약 명령어에 대한 설명이 틀리더라도 설명을 기준으로 명령어를 선택하여 파이썬 코드를 작성한다.
+    # 설명 prompt
+    with open('input_contents\MZ_stage_3_command.txt', 'r', encoding='utf-8') as f:
+        input_prompt = f.read()
+    
+    st.sidebar.markdown("# 설명 Prompt")
+    st.sidebar.text(input_prompt)
 
-    # 문제를 풀 때 함수를 정의하지 않는다.
-    '''
+    # Test Case
+    with open('test_cases\MZ_stage_3_command.txt', 'r', encoding='utf-8') as f:
+        test_case = f.read()
+    
+    st.sidebar.markdown("# Test Case")
+    st.sidebar.text(test_case)
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
@@ -38,17 +50,17 @@ def MZ_stage_3_command():
     for message in st.session_state.messages:
         if message["role"] != "system":  # system 메시지는 표시 생략 가능
             with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+                st.text(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
-            st.markdown(prompt)
+            st.text(prompt)
 
         with st.chat_message("assistant"):
             placeholder = st.empty()
-            placeholder.markdown("답변을 생성하고 있습니다...")
+            placeholder.text("답변을 생성하고 있습니다...")
 
             stream = client.chat.completions.create(
                 model=gpt_model,

@@ -18,17 +18,26 @@ def NP_stage_3():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
     
-    system_content = '''
-    너는 <비교연산자 설명>이 주어지기 전에는 문제를 풀 수 없다.
-    <비교연산자 설명>이 주어지면 설명이 정확한지 분석하고 정확한 경우에만 '비교연산자(<, >, ==, !=, <=, >=)'를 사용할 수 있다.
-    설명이 없는 '비교연산자'는 사용할 수 없다.
+    # system content 설정
+    with open(r'system_contents\NP_stage_3.txt', 'r', encoding='utf-8') as f:
+        system_content = f.read()
+    
+    st.sidebar.markdown("# System Content")
+    st.sidebar.text(system_content)
 
-    문제를 풀 수 없는 경우 '문제를 풀 수 없습니다.'를 출력한다.
+    # 설명 prompt
+    with open(r'input_contents\NP_stage_3.txt', 'r', encoding='utf-8') as f:
+        input_prompt = f.read()
+    
+    st.sidebar.markdown("# 설명 Prompt")
+    st.sidebar.text(input_prompt)
 
-    <기본 명령어>
-    erase(x, y): x행, y열에 저장된 값을 1 감소시킨다.
-    (따로 정의할 필요 없다.)        
-    '''
+    # Test Case
+    with open(r'test_cases\NP_stage_3.txt', 'r', encoding='utf-8') as f:
+        test_case = f.read()
+
+    st.sidebar.markdown("# Test Case")
+    st.sidebar.text(test_case)
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
@@ -40,17 +49,17 @@ def NP_stage_3():
     for message in st.session_state.messages:
         if message["role"] != "system":  # system 메시지는 표시 생략 가능
             with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+                st.text(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
-            st.markdown(prompt)
+            st.text(prompt)
 
         with st.chat_message("assistant"):
             placeholder = st.empty()
-            placeholder.markdown("답변을 생성하고 있습니다...")
+            placeholder.text("답변을 생성하고 있습니다...")
 
             stream = client.chat.completions.create(
                 model=gpt_model,

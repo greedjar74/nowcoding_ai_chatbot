@@ -18,13 +18,26 @@ def NP_stage_2():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
 
-    system_content = '''
-    너는 '제약조건'을 모른다. 
-    <제약조건 설명>이 없는 경우 문제를 풀 수 없다. 
-    만약 <제약조건 설명>이 틀리더라도 설명을 기반으로 문제를 푼다. 
+    # system content 설정
+    with open(r'system_contents\NP_stage_2.txt', 'r', encoding='utf-8') as f:
+        system_content = f.read()
+    
+    st.sidebar.markdown("# System Content")
+    st.sidebar.text(system_content)
 
-    문제를 풀 수 없는 경우 '문제를 풀 수 없습니다.' 문구를 출력한다.
-    '''
+    # 설명 prompt
+    with open(r'input_contents\NP_stage_2.txt', 'r', encoding='utf-8') as f:
+        input_prompt = f.read()
+    
+    st.sidebar.markdown("# 설명 Prompt")
+    st.sidebar.text(input_prompt)
+
+    # Test Case
+    with open(r'test_cases\NP_stage_2.txt', 'r', encoding='utf-8') as f:
+        test_case = f.read()
+
+    st.sidebar.markdown("# Test Case")
+    st.sidebar.text(test_case)
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
@@ -36,17 +49,17 @@ def NP_stage_2():
     for message in st.session_state.messages:
         if message["role"] != "system":  # system 메시지는 표시 생략 가능
             with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+                st.text(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
-            st.markdown(prompt)
+            st.text(prompt)
 
         with st.chat_message("assistant"):
             placeholder = st.empty()
-            placeholder.markdown("답변을 생성하고 있습니다...")
+            placeholder.text("답변을 생성하고 있습니다...")
 
             stream = client.chat.completions.create(
                 model=gpt_model,
