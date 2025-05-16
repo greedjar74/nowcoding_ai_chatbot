@@ -16,28 +16,24 @@ def NP_stage_1():
 
     gpt_model = 'gpt-4.1-mini'
     st.sidebar.markdown('# gpt model')
-    st.sidebar.text(gpt_model)
+    st.sidebar.markdown(gpt_model)
 
-    # system content 설정
-    with open(r'system_contents\NP_stage_1.txt', 'r', encoding='utf-8') as f:
-        system_content = f.read()
-    
+    system_content = '''
+    너는 <문제 설명>이 주어지기 전에는 문제를 풀 수 없다.
+
+    너는 행렬의 x, y위치에 저장된 값을 ‘감소’시키는 ‘명령어’를 모른다. 
+    <명령어 설명>이 주어지지 않으면 문제를 풀 수 없다.
+
+    문제를 풀 수 없는 경우 ‘문제를 풀 수 없습니다.’ 문구를 출력한다.
+
+    # 너는 코드를 생성할 때 'if문'을 사용할 수 없다. 
+    # 너는 코드를 생성할 때 'for문'을 사용할 수 없다.
+    # 너는 코드를 생성할 때 'while문'을 사용할 수 없다.
+    # 함수를 정희하지 않고 코드를 작성한다.
+    '''
+
     st.sidebar.markdown("# System Content")
     st.sidebar.text(system_content)
-
-    # 설명 prompt
-    with open(r'input_contents\NP_stage_1.txt', 'r', encoding='utf-8') as f:
-        input_prompt = f.read()
-    
-    st.sidebar.markdown("# 설명 Prompt")
-    st.sidebar.text(input_prompt)
-
-    # Test Case
-    with open(r'test_cases\NP_stage_1.txt', 'r', encoding='utf-8') as f:
-        test_case = f.read()
-
-    st.sidebar.markdown("# Test Case")
-    st.sidebar.text(test_case)
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:

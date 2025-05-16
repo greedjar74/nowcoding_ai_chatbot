@@ -18,26 +18,29 @@ def MZ_stage_7():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
 
-    # system content 설정
-    with open('system_contents\MZ_stage_7.txt', 'r', encoding='utf-8') as f:
-        system_content = f.read()
-    
+    system_content = '''
+    너는 ‘elif문’에 대한 설명이 주어지기 전에는 문제를 풀 수 없다. 
+    ‘elif문’에 대한 설명이 주어지면 설명이 정확한지 분석하고 정확한 경우에만 ‘elif문’을 사용할 수 있다.
+    설명에 ‘예시’가 없는 경우 문제를 풀 수 없다. 
+
+    너는 갈림길의 유무를 검사하는 명령어를 모른다. 
+    아바타 주변에 갈림길이 있는지 검사하는 명령어를 설명하기 전에는 문제를 풀 수 없다. 
+    '명령어 설명'이 틀린 경우 '명령어 설명'을 기준으로 조건을 작성한다. 
+
+    문제를 풀 수 없는 경우 ‘문제를 풀 수 없습니다.’ 문구를 출력한다. 
+
+    <기본 명령어 설명> 
+    moveForward(): 아바타를 한 칸 앞으로 이동시킨다. 
+    turnLeft(): 아바타를 왼쪽으로 90도 회전시킨다.
+    turnRight(): 아바타를 오른쪽으로 90도 회전시킨다.
+    pathAhead(): 아바타 앞에 길이 있는지 확인한다. 길이 있는 경우 True
+    pathLeft(): 아바타 왼쪽에 길이 있는지 확인한다. 길이 있는 경우 True
+    pathRight(): 아바타 오른쪽에 길이 있는지 확인한다. 길이 있는 경우 True
+    notDone(): 아바타가 도착지에 도착했는지 파악한다. 도착하지 못한 경우 True
+    '''
+
     st.sidebar.markdown("# System Content")
     st.sidebar.text(system_content)
-
-    # 설명 prompt
-    with open('input_contents\MZ_stage_7.txt', 'r', encoding='utf-8') as f:
-        input_prompt = f.read()
-    
-    st.sidebar.markdown("# 설명 Prompt")
-    st.sidebar.text(input_prompt)
-
-    # Test Case
-    with open('test_cases\MZ_stage_7.txt', 'r', encoding='utf-8') as f:
-        test_case = f.read()
-    
-    st.sidebar.markdown("# Test Case")
-    st.sidebar.text(test_case)
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:

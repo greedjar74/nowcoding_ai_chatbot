@@ -18,26 +18,16 @@ def NP_stage_2():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
 
-    # system content 설정
-    with open(r'system_contents\NP_stage_2.txt', 'r', encoding='utf-8') as f:
-        system_content = f.read()
-    
+    system_content = '''
+    너는 '제약조건'을 모른다. 
+    <제약조건 설명>이 없는 경우 문제를 풀 수 없다. 
+    만약 <제약조건 설명>이 틀리더라도 설명을 기반으로 문제를 푼다. 
+
+    문제를 풀 수 없는 경우 '문제를 풀 수 없습니다.' 문구를 출력한다.
+    '''
+
     st.sidebar.markdown("# System Content")
     st.sidebar.text(system_content)
-
-    # 설명 prompt
-    with open(r'input_contents\NP_stage_2.txt', 'r', encoding='utf-8') as f:
-        input_prompt = f.read()
-    
-    st.sidebar.markdown("# 설명 Prompt")
-    st.sidebar.text(input_prompt)
-
-    # Test Case
-    with open(r'test_cases\NP_stage_2.txt', 'r', encoding='utf-8') as f:
-        test_case = f.read()
-
-    st.sidebar.markdown("# Test Case")
-    st.sidebar.text(test_case)
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
