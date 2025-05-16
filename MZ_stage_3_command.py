@@ -26,20 +26,6 @@ def MZ_stage_3_command():
     st.sidebar.markdown("# System Content")
     st.sidebar.text(system_content)
 
-    # 설명 prompt
-    with open('input_contents\MZ_stage_3_command.txt', 'r', encoding='utf-8') as f:
-        input_prompt = f.read()
-    
-    st.sidebar.markdown("# 설명 Prompt")
-    st.sidebar.text(input_prompt)
-
-    # Test Case
-    with open('test_cases\MZ_stage_3_command.txt', 'r', encoding='utf-8') as f:
-        test_case = f.read()
-    
-    st.sidebar.markdown("# Test Case")
-    st.sidebar.text(test_case)
-
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
         st.session_state.messages = [
