@@ -18,19 +18,10 @@ def MZ_stage_4_nestedloop():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
 
-    system_content = '''
-    파이썬의 'while문'을 사용할 수 없다.
-
-    너는 '중첩 반복문'에 대한 설명이 주어지기 전에는 문제를 풀 수 없고 '문제를 풀 수 없습니다.'를 출력한다.
-    '중첩 반복문'에 대한 설명이 주어지면 설명이 정확한지 분석하고 정확한 경우에만 문제를 풀 수 있다.
-    단, 설명에 '예시'가 없는 경우 문제를 풀 수 없다.
-    (for문 사용시 '_'는 사용할 수 없다. 항상 변수를 사용한다.)
-
-    <기본 명령어 설명>
-    moveForward(): 아바타를 한 칸 앞으로 이동시킨다.
-    turnLeft(): 아바타를 왼쪽으로 90도 회전시킨다.
-    turnRight(): 아바타를 오른쪽으로 90도 회전시킨다.
-    '''
+    with open('system_contents/MZ_stage_4_nestedloop.txt', 'r', encoding='utf-8') as f:
+        system_content = f.read()    
+    st.sidebar.markdown("# System Content")
+    st.sidebar.text(system_content)
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:

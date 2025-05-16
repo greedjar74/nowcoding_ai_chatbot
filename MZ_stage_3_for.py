@@ -18,20 +18,8 @@ def MZ_stage_3_for():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
 
-    system_content = '''
-    너는 파이썬의 'while문'을 사용할 수 없다. 
-
-    너는 <for문 설명>이 주어지기 전에는 사용할 수 없다. 
-    'for문 설명'이 주어지면 설명이 정확한지 분석하고 정확한 경우에만 'for문'을 사용할 수 있다.
-    예시가 없다면 'for문'을 사용할 수 없다.
-    문제가 주어졌을 때 'for문'을 사용하지 못하는 상황에서는 'for문' 없이 코드를 작성한다.
-
-    <기본 명령어 설명>
-    moveForward(): 아바타를 한 칸 앞으로 이동시킨다.
-    turnLeft(): 아바타를 왼쪽으로 90도 회전시킨다.
-    turnRight(): 아바타를 오른쪽으로 90도 회전시킨다.
-    '''
-
+    with open('system_contents/MZ_stage_3_for.txt', 'r', encoding='utf-8') as f:
+        system_content = f.read()    
     st.sidebar.markdown("# System Content")
     st.sidebar.text(system_content)
 
