@@ -32,6 +32,9 @@ def NP_stage_1():
     # 함수를 정희하지 않고 코드를 작성한다.
     '''
 
+    st.sidebar.markdown("# System Content")
+    st.sidebar.text(system_content)
+
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
         st.session_state.messages = [
@@ -42,17 +45,17 @@ def NP_stage_1():
     for message in st.session_state.messages:
         if message["role"] != "system":  # system 메시지는 표시 생략 가능
             with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+                st.text(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
-            st.markdown(prompt)
+            st.text(prompt)
 
         with st.chat_message("assistant"):
             placeholder = st.empty()
-            placeholder.markdown("답변을 생성하고 있습니다...")
+            placeholder.text("답변을 생성하고 있습니다...")
 
             stream = client.chat.completions.create(
                 model=gpt_model,
