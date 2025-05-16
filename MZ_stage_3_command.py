@@ -18,16 +18,8 @@ def MZ_stage_3_command():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
     
-    system_content = '''
-    너는 for문을 사용할 수 없다.
-
-    너는 아바타를 제어하는 명령어를 모른다.
-    설명이 주어지지 않은 명령어는 사용할 수 없으며 '명령어를 모릅니다.' 문구를 출력한다.
-    만약 명령어에 대한 설명이 틀리더라도 설명을 기준으로 명령어를 선택하여 파이썬 코드를 작성한다.
-
-    # 문제를 풀 때 함수를 정의하지 않는다.
-    '''
-    
+    with open('system_contents/MZ_stage_3_command.txt', 'r', encoding='utf-8') as f:
+        system_content = f.read()    
     st.sidebar.markdown("# System Content")
     st.sidebar.text(system_content)
 
