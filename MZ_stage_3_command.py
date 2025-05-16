@@ -1,7 +1,9 @@
 import streamlit as st
 from openai import OpenAI
 
-def MZ_stage_3_command():
+def MZ_stage_3_command():      
+    st.title("MZ stage 3. 명령어 Teaching")
+
     # 사이드바에서 API 키 입력 받기
     st.sidebar.header("API 설정")
     api_key_input = st.sidebar.text_input("OpenAI API Key", type="password")
