@@ -7,8 +7,16 @@ def test_page():
     st.sidebar.markdown("# Test page")
     st.sidebar.text("system content 및 teaching을 자유롭게 테스트하세요.")
 
+    # 사이드바에서 gpt model 입력 받기
+    st.sidebar.markdown("# gpt model 설정")
+    gpt_model = st.sidebar.text("gpt model")
+    
+    if not gpt_model:
+        st.warning("gpt model을 입력해주세요.")
+        return
+    
     # 사이드바에서 API 키 입력 받기
-    st.sidebar.header("API 설정")
+    st.sidebar.markdown("API 설정")
     api_key_input = st.sidebar.text_input("OpenAI API Key", type="password")
 
     if not api_key_input:
@@ -16,10 +24,6 @@ def test_page():
         return
 
     client = OpenAI(api_key=api_key_input)
-
-    gpt_model = 'gpt-4o-mini'
-    st.sidebar.markdown('# gpt model')
-    st.sidebar.markdown(gpt_model)
     
     # 사이드바에서 system content 입력 받기
     st.sidebar.markdown("# System content 입력 ")
