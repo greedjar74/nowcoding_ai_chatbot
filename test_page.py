@@ -1,7 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 
-def test():
+def test_page():
     st.title("Test")
 
     st.sidebar.markdown("# Test page")
