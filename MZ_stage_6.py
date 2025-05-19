@@ -46,6 +46,7 @@ def MZ_stage_6():
     for message in st.session_state.messages:
         if message["role"] != "system":  # system 메시지는 표시 생략 가능
             with st.chat_message(message["role"]):
+                # gpt가 생성한 답변은 python 형태로 출력
                 if message['role'] == 'assistant':
                     st.code(message['content'], language='python')
                 else :
@@ -71,6 +72,6 @@ def MZ_stage_6():
             )
             response = placeholder.write_stream(stream)
 
-            placeholder.code(response, language='python')
+            placeholder.code(response, language='python') # gpt가 생성한 답변은 python 형태로 출력
 
         st.session_state.messages.append({"role": "assistant", "content": response})
