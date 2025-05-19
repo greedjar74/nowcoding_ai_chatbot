@@ -5,7 +5,7 @@ def test_page():
     st.title("Test")
 
     st.sidebar.markdown("# Test page")
-    st.sidebar.text("system content 및 teaching을 자유롭게 테스트하세요.")
+    st.sidebar.text("자유롭게 테스트하세요.")
 
     # 사이드바에서 gpt model 입력 받기
     st.sidebar.markdown("# gpt model 설정")
