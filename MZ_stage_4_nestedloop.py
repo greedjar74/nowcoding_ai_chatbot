@@ -18,10 +18,23 @@ def MZ_stage_4_nestedloop():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
 
+    # system content
     with open('system_contents/MZ_stage_4_nestedloop.txt', 'r', encoding='utf-8') as f:
         system_content = f.read()    
     st.sidebar.markdown("# System Content")
     st.sidebar.text(system_content)
+
+    # teaching prompt
+    with open('input_contents/MZ_stage_4_nestedloop.txt', 'r', encoding='utf-8') as f:
+        teaching_prompt = f.read()    
+    st.sidebar.markdown("# Teaching Prompt")
+    st.sidebar.text(teaching_prompt)
+    
+    # Test case
+    with open('test_cases/MZ_stage_4_nestedloop.txt', 'r', encoding='utf-8') as f:
+        test_case = f.read()    
+    st.sidebar.markdown("# Test Case")
+    st.sidebar.text(test_case)
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
@@ -33,17 +46,20 @@ def MZ_stage_4_nestedloop():
     for message in st.session_state.messages:
         if message["role"] != "system":  # system 메시지는 표시 생략 가능
             with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+                if message['role'] == 'assistant':
+                    st.code(message['content'], language='python')
+                else :
+                    st.text(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
-            st.markdown(prompt)
+            st.text(prompt)
 
         with st.chat_message("assistant"):
             placeholder = st.empty()
-            placeholder.markdown("답변을 생성하고 있습니다...")
+            placeholder.text("답변을 생성하고 있습니다...")
 
             stream = client.chat.completions.create(
                 model=gpt_model,
@@ -54,5 +70,7 @@ def MZ_stage_4_nestedloop():
                 stream=True,
             )
             response = placeholder.write_stream(stream)
+
+            placeholder.code(response, language='python')
 
         st.session_state.messages.append({"role": "assistant", "content": response})

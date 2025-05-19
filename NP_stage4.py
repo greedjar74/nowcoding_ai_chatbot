@@ -18,18 +18,23 @@ def NP_stage_4():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
     
-    system_content = '''
-    너는 ‘while문’을 사용할 수 없다. 
-
-    너는 <범위설정 설명>이 주어지기 전에는 문제를 풀 수 없다.
-    <범위설정 설명>이 주어지면 설명이 정확한지 분석하고 정확한 경우 문제를 풀 수 있다.
-    예시가 없는 경우 설명을 이해할 수 없다.
-
-    문제를 풀 수 없는 경우 '문제를 풀 수 없습니다.' 문구를 출력한다.
-    '''
-
+    # system content
+    with open('system_contents/NP_stage_4.txt', 'r', encoding='utf-8') as f:
+        system_content = f.read()    
     st.sidebar.markdown("# System Content")
     st.sidebar.text(system_content)
+
+    # teaching prompt
+    with open('input_contents/NP_stage_4.txt', 'r', encoding='utf-8') as f:
+        teaching_prompt = f.read()    
+    st.sidebar.markdown("# Teaching Prompt")
+    st.sidebar.text(teaching_prompt)
+    
+    # Test case
+    with open('test_cases/NP_stage_4.txt', 'r', encoding='utf-8') as f:
+        test_case = f.read()    
+    st.sidebar.markdown("# Test Case")
+    st.sidebar.text(test_case)
     
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
@@ -41,7 +46,10 @@ def NP_stage_4():
     for message in st.session_state.messages:
         if message["role"] != "system":  # system 메시지는 표시 생략 가능
             with st.chat_message(message["role"]):
-                st.text(message["content"])
+                if message['role'] == 'assistant':
+                    st.code(message['content'], language='python')
+                else :
+                    st.text(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
@@ -62,5 +70,7 @@ def NP_stage_4():
                 stream=True,
             )
             response = placeholder.write_stream(stream)
+
+            placeholder.code(response, language='python')
 
         st.session_state.messages.append({"role": "assistant", "content": response})

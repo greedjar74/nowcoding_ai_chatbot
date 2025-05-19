@@ -18,18 +18,23 @@ def NP_stage_7():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
     
-    system_content = '''
-    배열이 주어지면 배열 내부에 '패턴'이 존재하는지 파악한다.
-    '패턴'에 대한 설명이 없는 경우 '문제를 풀 수 없습니다.' 문구를 출력한다.
-    '패턴'에 대한 설명이 주어지면 패턴이 있는지 파악하여 결과를 출력한다.
-
-    단,'패턴' 설명에 주어진 예시를 분석하여 설명과 다른 경우 문제를 풀 수 없다.
-
-    (패턴이 있는 경우 True, 패턴이 없는 경우 False)
-    '''
-
+    # system content
+    with open('system_contents/NP_stage_7.txt', 'r', encoding='utf-8') as f:
+        system_content = f.read()    
     st.sidebar.markdown("# System Content")
     st.sidebar.text(system_content)
+
+    # teaching prompt
+    with open('input_contents/NP_stage_7.txt', 'r', encoding='utf-8') as f:
+        teaching_prompt = f.read()    
+    st.sidebar.markdown("# Teaching Prompt")
+    st.sidebar.text(teaching_prompt)
+    
+    # Test case
+    with open('test_cases/NP_stage_7.txt', 'r', encoding='utf-8') as f:
+        test_case = f.read()    
+    st.sidebar.markdown("# Test Case")
+    st.sidebar.text(test_case)
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
@@ -41,7 +46,10 @@ def NP_stage_7():
     for message in st.session_state.messages:
         if message["role"] != "system":  # system 메시지는 표시 생략 가능
             with st.chat_message(message["role"]):
-                st.text(message["content"])
+                if message['role'] == 'assistant':
+                    st.code(message['content'], language='python')
+                else :
+                    st.text(message["content"])
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
@@ -62,5 +70,7 @@ def NP_stage_7():
                 stream=True,
             )
             response = placeholder.write_stream(stream)
+
+            placeholder.code(response, language='python')
 
         st.session_state.messages.append({"role": "assistant", "content": response})
