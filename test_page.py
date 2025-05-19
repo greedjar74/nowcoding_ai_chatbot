@@ -16,7 +16,7 @@ def test_page():
         return
     
     # 사이드바에서 API 키 입력 받기
-    st.sidebar.markdown("API 설정")
+    st.sidebar.markdown("# API key 설정")
     api_key_input = st.sidebar.text_input("OpenAI API Key", type="password")
 
     if not api_key_input:
