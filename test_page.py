@@ -9,7 +9,7 @@ def test_page():
 
     # 사이드바에서 gpt model 입력 받기
     st.sidebar.markdown("# gpt model 설정")
-    gpt_model = st.sidebar.text("gpt model")
+    gpt_model = st.sidebar.text_input("gpt model")
     
     if not gpt_model:
         st.warning("gpt model을 입력해주세요.")
