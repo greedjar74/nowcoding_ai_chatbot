@@ -6,6 +6,7 @@ def test_page():
 
     st.sidebar.markdown("# Test page")
     st.sidebar.text("자유롭게 테스트하세요.")
+    st.sidebar.text("대화 기록이 남아있는 경우 다른 stage로 한 번 이동해주세요.")
 
     # 사이드바에서 gpt model 입력 받기
     st.sidebar.markdown("# gpt model 설정")
