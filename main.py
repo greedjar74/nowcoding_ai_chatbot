@@ -46,13 +46,6 @@ def main_page():
 
 page_names_to_funcs = {'Main Page': main_page, 'MZ 실습': MZ_main, 'NP 실습': NP_main, 'Test': test_page}
 
-selected_stage = st.sidebar.selectbox('Select a stage', page_names_to_funcs.keys())
+selected_page = st.sidebar.selectbox('Select a stage', page_names_to_funcs.keys())
 
-# 이전 페이지와 다르면 메시지 초기화
-if "previous_stage" not in st.session_state:
-   st.session_state.previous_stage = selected_stage
-elif st.session_state.previous_stage != selected_stage:
-   st.session_state.pop("messages", None)  # 메시지 초기화
-   st.session_state.previous_stage = selected_stage
-
-page_names_to_funcs[selected_stage]()
+page_names_to_funcs[selected_page]()
