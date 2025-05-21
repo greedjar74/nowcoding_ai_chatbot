@@ -10,11 +10,19 @@ def test_page():
 
     # 사이드바에서 gpt model 입력 받기
     st.sidebar.markdown("# gpt model 설정")
-    gpt_model = st.sidebar.text_input("gpt model")
+    models = ['gpt-4o-mini',
+              'gpt-4.1-mini',
+              'o4-mini',
+              '직접 입력']
+    selected_model = st.sidebar.selectbox('model을 선택하세요.', models)
     
-    if not gpt_model:
-        st.warning("gpt model을 사이드바에 입력해주세요.")
-        return
+    if selected_model == '직접 입력':
+        gpt_model = st.sidebar.text_input('gpt model을 입력하세요.')
+        if not gpt_model:
+            st.warning("gpt model을 사이드바에 입력해주세요.")
+            return
+    else :
+        gpt_model = selected_model
     
     # 사이드바에서 API 키 입력 받기
     st.sidebar.markdown("# API key 설정")
@@ -27,7 +35,7 @@ def test_page():
     client = OpenAI(api_key=api_key_input)
     
     # 사이드바에서 system content 입력 받기
-    st.sidebar.markdown("# System content 입력 ")
+    st.sidebar.markdown("# System content 입력")
     system_content = st.sidebar.text_area("System content")
 
     if not system_content:
@@ -42,7 +50,7 @@ def test_page():
 
     # 이전 메시지 출력
     for message in st.session_state.messages:
-        if message["role"] != "system":  # system 메시지는 표시 생략 가능
+        #if message["role"] != "system":  # system 메시지는 표시 생략 가능
             with st.chat_message(message["role"]):
                 # gpt가 생성한 답변은 python 형태로 출력
                 if message['role'] == 'assistant':
