@@ -13,7 +13,7 @@ def test_page():
     gpt_model = st.sidebar.text_input("gpt model")
     
     if not gpt_model:
-        st.warning("gpt model을 입력해주세요.")
+        st.warning("gpt model을 사이드바에 입력해주세요.")
         return
     
     # 사이드바에서 API 키 입력 받기
