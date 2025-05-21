@@ -14,7 +14,7 @@ def NP_stage_2():
 
     client = OpenAI(api_key=api_key_input)
 
-    gpt_model = 'gpt-4.1-mini'
+    gpt_model = 'o4-mini'
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
 
