@@ -28,7 +28,7 @@ def test_page():
     
     # 사이드바에서 system content 입력 받기
     st.sidebar.markdown("# System content 입력 ")
-    system_content = st.sidebar.text_input("System content")
+    system_content = st.sidebar.text_area("System content")
 
     if not system_content:
         st.warning("System content를 사이드바에 입력해주세요.")
