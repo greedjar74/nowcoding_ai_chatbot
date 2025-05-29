@@ -12,10 +12,10 @@ from NP_stage8_2 import NP_stage_8_2
 from NP_stage8_3 import NP_stage_8_3
 
 def NP_main():
-    stages = ['NP stage 1. 문제, 명령어 Teaching', 
-              'NP stage 2. 제약조건 Teaching', 
-              'NP stage 3. 비교연산자 Teaching', 
-              'NP stage 4. for문 범위 설정 Teaching',
+    stages = ['NP stage 1. 문제, 명령어 Teaching',
+              'NP stage 2. 비교연산자 Teaching', 
+              'NP stage 3. for문 범위 설정 Teaching', 
+              'NP stage 4. 제약조건 Teaching', 
               'NP stage 5. 대각선 패턴 Teaching', 
               'NP stage 6. 직사각형 패턴 Teaching', 
               'NP stage 7. x, y 연산 패턴 Teaching', 
@@ -34,11 +34,11 @@ def NP_main():
 
     if selected_stage == 'NP stage 1. 문제, 명령어 Teaching':
         NP_stage_1()
-    elif selected_stage == 'NP stage 2. 제약조건 Teaching':
+    elif selected_stage == 'NP stage 2. 비교연산자 Teaching':
         NP_stage_2()
-    elif selected_stage == 'NP stage 3. 비교연산자 Teaching':
+    elif selected_stage == 'NP stage 3. for문 범위 설정 Teaching':
         NP_stage_3()
-    elif selected_stage == 'NP stage 4. for문 범위 설정 Teaching':
+    elif selected_stage == 'NP stage 4. 제약조건 Teaching':
         NP_stage_4()
     elif selected_stage == 'NP stage 5. 대각선 패턴 Teaching':
         NP_stage_5()

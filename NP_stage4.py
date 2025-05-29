@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 
 def NP_stage_4():
-    st.title("NP stage 4. for문 범위 설정 Teaching")
+    st.title("NP stage 4. 제약조건 Teaching")
 
     # 사이드바에서 API 키 입력 받기
     st.sidebar.header("API 설정")
@@ -14,10 +14,10 @@ def NP_stage_4():
 
     client = OpenAI(api_key=api_key_input)
 
-    gpt_model = 'gpt-4.1-mini'
+    gpt_model = 'o4-mini'
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
-    
+
     # system content
     with open('system_contents/NP_stage_4.txt', 'r', encoding='utf-8') as f:
         system_content = f.read()    
@@ -35,7 +35,7 @@ def NP_stage_4():
         test_case = f.read()    
     st.sidebar.markdown("# Test Case")
     st.sidebar.text(test_case)
-    
+
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
         st.session_state.messages = [
