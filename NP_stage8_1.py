@@ -96,7 +96,7 @@ board = [[0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
     '''
 
     # 텍스트 영역에 기본값으로 코드 표시
-    input_code = st.text_area("여기에 파이썬 코드를 입력하세요", value="", height=200)
+    input_code = st.text_area("gpt가 생성한 코드를 입력하세요", value="", height=100)
 
     run_code = ''' # 실행 코드
 for l in board:
