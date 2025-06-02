@@ -1,5 +1,7 @@
 import streamlit as st
 from openai import OpenAI
+import io
+import contextlib
 
 def NP_stage_8_3():
     st.title("NP stage 8-3. (x+y)%5==0 패턴 Teaching")
@@ -75,3 +77,55 @@ def NP_stage_8_3():
             placeholder.code(response, language='python') # gpt가 생성한 답변은 python 형태로 출력
 
         st.session_state.messages.append({"role": "assistant", "content": response})
+
+    # 기본 코드 설정
+    default_code = '''# 예시 코드
+def erase(x, y):
+    board[x][y] -= 1
+        
+board = [[1, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+[0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+[0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
+[0, 0, 1, 0, 0, 0, 0, 1, 0, 0],
+[0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+[1, 0, 0, 0, 0, 1, 0, 0, 0, 0], 
+[0, 0, 0, 0, 1, 0, 0, 0, 0, 1], 
+[0, 0, 0, 1, 0, 0, 0, 0, 1, 0], 
+[0, 0, 1, 0, 0, 0, 0, 1, 0, 0], 
+[0, 1, 0, 0, 0, 0, 1, 0, 0, 0]]
+    '''
+
+    # 텍스트 영역에 기본값으로 코드 표시
+    input_code = st.text_area("여기에 파이썬 코드를 입력하세요", value="", height=200)
+
+    run_code = ''' # 실행 코드
+for l in board:
+    print(l)
+    '''
+
+    code = default_code + '\n' + input_code + '\n' + run_code
+    if st.button("코드 실행"):
+        output = io.StringIO()
+        try:
+            with contextlib.redirect_stdout(output):
+                exec(code, {})
+            st.success("실행 성공!")
+        except Exception as e:
+            st.error(f"오류 발생: {e}")
+        st.text("출력 결과:")
+        result = '''
+# before
+[1, 0, 0, 0, 0, 1, 0, 0, 0, 0]
+[0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+[0, 0, 0, 1, 0, 0, 0, 0, 1, 0]
+[0, 0, 1, 0, 0, 0, 0, 1, 0, 0]
+[0, 1, 0, 0, 0, 0, 1, 0, 0, 0]
+[1, 0, 0, 0, 0, 1, 0, 0, 0, 0] 
+[0, 0, 0, 0, 1, 0, 0, 0, 0, 1] 
+[0, 0, 0, 1, 0, 0, 0, 0, 1, 0] 
+[0, 0, 1, 0, 0, 0, 0, 1, 0, 0] 
+[0, 1, 0, 0, 0, 0, 1, 0, 0, 0]
+
+#after
+''' 
+        st.code(result + output.getvalue())
