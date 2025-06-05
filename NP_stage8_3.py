@@ -79,7 +79,7 @@ def NP_stage_8_3():
         st.session_state.messages.append({"role": "assistant", "content": response})
 
     # 🔁 대화 리셋 버튼 (system 메시지 제외)
-    if st.button("💬 GPT 대화 리셋 (System 유지)"):
+    if st.button("⚠️ 대화 리셋"):
         system_message = next((m for m in st.session_state.messages if m["role"] == "system"), None)
         st.session_state.messages = []
         if system_message:
