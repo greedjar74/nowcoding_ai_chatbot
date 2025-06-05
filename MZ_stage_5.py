@@ -75,3 +75,11 @@ def MZ_stage_5():
             placeholder.code(response, language='python') # gpt가 생성한 답변은 python 형태로 출력
 
         st.session_state.messages.append({"role": "assistant", "content": response})
+
+    # 🔁 대화 리셋 버튼 (system 메시지 제외)
+    if st.button("💬 GPT 대화 리셋 (System 유지)"):
+        system_message = next((m for m in st.session_state.messages if m["role"] == "system"), None)
+        st.session_state.messages = []
+        if system_message:
+            st.session_state.messages.append(system_message)
+        st.rerun()

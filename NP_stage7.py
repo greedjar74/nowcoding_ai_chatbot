@@ -78,6 +78,14 @@ def NP_stage_7():
 
         st.session_state.messages.append({"role": "assistant", "content": response})
 
+    # 🔁 대화 리셋 버튼 (system 메시지 제외)
+    if st.button("💬 GPT 대화 리셋 (System 유지)"):
+        system_message = next((m for m in st.session_state.messages if m["role"] == "system"), None)
+        st.session_state.messages = []
+        if system_message:
+            st.session_state.messages.append(system_message)
+        st.rerun()
+
     # 기본 코드 설정
     default_code = '''# 예시 코드
 def erase(x, y):
