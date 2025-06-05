@@ -1,5 +1,7 @@
 import streamlit as st
 from openai import OpenAI
+import io
+import contextlib
 
 def test_page():
     st.title("Test")
@@ -81,3 +83,35 @@ def test_page():
             placeholder.code(response, language='python') # gpt가 생성한 답변은 python 형태로 출력
 
         st.session_state.messages.append({"role": "assistant", "content": response})
+
+    # 🔁 대화 리셋 버튼 (system 메시지 제외)
+    if st.button("💬 GPT 대화 리셋 (System 유지)"):
+        system_message = next((m for m in st.session_state.messages if m["role"] == "system"), None)
+        st.session_state.messages = []
+        if system_message:
+            st.session_state.messages.append(system_message)
+        st.rerun()
+
+    # 기본 코드 설정
+    default_code = '''
+    '''
+
+    # 텍스트 영역에 기본값으로 코드 표시
+    input_code = st.text_area("gpt가 생성한 코드를 입력하세요", value="", height=100)
+
+    run_code = '''
+    '''
+
+    code = default_code + '\n' + input_code + '\n' + run_code
+    if st.button("코드 실행"):
+        output = io.StringIO()
+        try:
+            with contextlib.redirect_stdout(output):
+                exec(code, {})
+            st.success("실행 성공!")
+        except Exception as e:
+            st.error(f"오류 발생: {e}")
+        st.text("출력 결과:")
+        result = '''
+''' 
+        st.code(result + output.getvalue())
