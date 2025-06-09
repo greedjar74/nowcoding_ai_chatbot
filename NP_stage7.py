@@ -109,6 +109,21 @@ board = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     run_code = ''' # 실행 코드
 for l in board:
     print(l)
+
+re = True
+for i in range(10):
+    for j in range(10):
+        if board[i][j] != 0:
+            re = False
+            break
+    if not re:
+        break
+        
+print()
+if re:
+    print("모든 폭탄을 제거했습니다.")
+else :
+    print("폭탄을 제대로 제거하지 못헸습니다.")
     '''
 
     code = default_code + '\n' + input_code + '\n' + run_code
