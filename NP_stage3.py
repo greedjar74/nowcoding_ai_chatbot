@@ -3,6 +3,11 @@ from openai import OpenAI
 import io
 import contextlib
 
+from get_system_content import get_system_content
+from get_teaching_prompt import get_teaching_prompt
+from get_test_case import get_test_case
+from config_loader import load_config
+
 def NP_stage_3():
     st.title("NP stage 3. for문 범위 설정 Teaching")
 
@@ -20,24 +25,32 @@ def NP_stage_3():
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
     
-    # system content
-    with open('system_contents/NP_stage_3.txt', 'r', encoding='utf-8') as f:
-        system_content = f.read()    
-    st.sidebar.markdown("# System Content")
-    st.sidebar.text(system_content)
+    st.sidebar.markdown("# Prompt")
+    config = load_config("NP_stage_3")
+    
+    # system content 불러오기
+    system_content = get_system_content(config['system_content_path'])
 
-    # teaching prompt
-    with open('input_contents/NP_stage_3.txt', 'r', encoding='utf-8') as f:
-        teaching_prompt = f.read()    
-    st.sidebar.markdown("# Teaching Prompt")
-    st.sidebar.text(teaching_prompt)
+    # system content 보기 옵션
+    show_system_content = st.sidebar.checkbox("System Content 보기", value=False)
+    if show_system_content:    
+        st.sidebar.markdown("### System Content")
+        st.sidebar.text(system_content)
+
+    # teaching prompt 불러오기
+    teaching_prompt = get_teaching_prompt(config['teaching_prompt_path'])
+
+    # teaching prompt 보기 옵션
+    show_teaching_prompt = st.sidebar.checkbox("Teaching Prompt 보기", value=False)
+    if show_teaching_prompt:   
+        st.sidebar.markdown("### Teaching Prompt")
+        st.sidebar.text(teaching_prompt)
     
     # Test case
-    with open('test_cases/NP_stage_3.txt', 'r', encoding='utf-8') as f:
-        test_case = f.read()    
+    test_case = get_test_case(config['test_case_path'])
     st.sidebar.markdown("# Test Case")
-    st.sidebar.text('# NP04PY007')
-    st.sidebar.image('testcase_imgs/NP_stage3_testcase_img.PNG')
+    st.sidebar.text(config['test_case_label'])
+    st.sidebar.image(config['test_case_image'])
     
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
