@@ -1,5 +1,6 @@
 # 경로 설정
 
+# MZ
 MZ_stage_3_command:
   system_content_path: "system_contents/MZ_stage_3_command.txt"
   teaching_prompt_path: "input_contents/MZ_stage_3_command.txt"
@@ -48,3 +49,72 @@ MZ_stage_7:
   test_case_path: "test_cases/MZ_stage_7.txt"
   test_case_image: "testcase_imgs/MZ_stage_7_testcase_img.PNG"
   test_case_label: "# MZ09PY018"
+
+# NP
+NP_stage_1:
+  system_content_path: "system_contents/NP_stage_1.txt"
+  teaching_prompt_path: "input_contents/NP_stage_1.txt"
+  test_case_path: "test_cases/NP_stage_1.txt"
+  test_case_image: "testcase_imgs/NP_stage1_testcase_img.PNG"
+  test_case_label: "# NP01PY001V"
+
+NP_stage_2:
+  system_content_path: "system_contents/NP_stage_2.txt"
+  teaching_prompt_path: "input_contents/NP_stage_2.txt"
+  test_case_path: "test_cases/NP_stage_2.txt"
+  test_case_image: "testcase_imgs/NP_stage2_testcase_img.PNG"
+  test_case_label: "# NP03PY001V"
+
+NP_stage_3:
+  system_content_path: "system_contents/NP_stage_3.txt"
+  teaching_prompt_path: "input_contents/NP_stage_3.txt"
+  test_case_path: "test_cases/NP_stage_3.txt"
+  test_case_image: "testcase_imgs/NP_stage3_testcase_img.PNG"
+  test_case_label: "# NP04PY007"
+
+NP_stage_4:
+  system_content_path: "system_contents/NP_stage_4.txt"
+  teaching_prompt_path: "input_contents/NP_stage_4.txt"
+  test_case_path: "test_cases/NP_stage_4.txt"
+
+NP_stage_5:
+  system_content_path: "system_contents/NP_stage_5.txt"
+  teaching_prompt_path: "input_contents/NP_stage_5.txt"
+  test_case_path: "test_cases/NP_stage_5.txt"
+  test_case_image: "testcase_imgs/NP_stage5_testcase_img.PNG"
+  test_case_label: "# NP06PY001V. 제약조건 : 반복문 1개, 커맨드 1개"
+
+NP_stage_6:
+  system_content_path: "system_contents/NP_stage_6.txt"
+  teaching_prompt_path: "input_contents/NP_stage_6.txt"
+  test_case_path: "test_cases/NP_stage_6.txt"
+  test_case_image: "testcase_imgs/NP_stage6_testcase_img.PNG"
+  test_case_label: "# NP08PY001V. 제약조건 : 반복문 2개, 커맨드 1개"
+
+NP_stage_7:
+  system_content_path: "system_contents/NP_stage_7.txt"
+  teaching_prompt_path: "input_contents/NP_stage_7.txt"
+  test_case_path: "test_cases/NP_stage_7.txt"
+  test_case_image: "testcase_imgs/NP_stage7_testcase_img.PNG"
+  test_case_label: "# 자체제작. 제약조건 : 반복문 2개, 커맨드 1개"
+
+NP_stage_8_1:
+  system_content_path: "system_contents/NP_stage_8_1.txt"
+  teaching_prompt_path: "input_contents/NP_stage_8_1.txt"
+  test_case_path: "test_cases/NP_stage_8_1.txt"
+  test_case_image: "testcase_imgs/NP_stage8_1_testcase_img.PNG"
+  test_case_label: "# 자체제작. 제약조건 : 반복문 2개, 커맨드 1개"
+
+NP_stage_8_2:
+  system_content_path: "system_contents/NP_stage_8_2.txt"
+  teaching_prompt_path: "input_contents/NP_stage_8_2.txt"
+  test_case_path: "test_cases/NP_stage_8_2.txt"
+  test_case_image: "testcase_imgs/NP_stage8_2_testcase_img.PNG"
+  test_case_label: "# NP08PY002. 제약조건: 반복문 1개, 커맨드 1개"
+
+NP_stage_8_3:
+  system_content_path: "system_contents/NP_stage_8_3.txt"
+  teaching_prompt_path: "input_contents/NP_stage_8_3.txt"
+  test_case_path: "test_cases/NP_stage_8_3.txt"
+  test_case_image: "testcase_imgs/NP_stage8_3_testcase_img.PNG"
+  test_case_label: "# NP09PY019. 제약조건: 반복문 2개, 커맨드 1개"
