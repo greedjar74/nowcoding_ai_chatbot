@@ -7,6 +7,7 @@ from get_system_content import get_system_content
 from get_teaching_prompt import get_teaching_prompt
 from get_test_case import get_test_case
 from config_loader import load_config
+from print_chat_history import print_chat_histroy
 
 def NP_stage_3():
     st.title("NP stage 3. for문 범위 설정 Teaching")
@@ -59,14 +60,7 @@ def NP_stage_3():
         ]
 
     # 이전 메시지 출력
-    for message in st.session_state.messages:
-        if message["role"] != "system":  # system 메시지는 표시 생략 가능
-            with st.chat_message(message["role"]):
-                # gpt가 생성한 답변은 python 형태로 출력
-                if message['role'] == 'assistant':
-                    st.code(message['content'], language='python')
-                else :
-                    st.text(message["content"])
+    print_chat_histroy(st.session_state.messages)
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
