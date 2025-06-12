@@ -60,6 +60,7 @@ def MZ_stage_4_nestedloop():
             {"role": "system", "content": system_content}
         ]
 
+    # 대화 내역 출력
     print_chat_histroy(st.session_state.messages)
 
     # 사용자 입력 처리
