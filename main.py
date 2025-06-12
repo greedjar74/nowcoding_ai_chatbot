@@ -10,17 +10,17 @@ def main_page():
     st.write('각 stage에 대한 실습을 진행하세요.')
 
     st.markdown("## API key 입력")
-    api_img = Image.open("api_key_input.PNG")
+    api_img = Image.open("main_page_images/api_key_input.PNG")
     st.image(api_img)
     st.text("- API key를 box에 입력해주세요.")
 
     st.markdown("## gpt model")
-    model_img = Image.open("gpt_model.PNG")
+    model_img = Image.open("main_page_images/gpt_model.PNG")
     st.image(model_img)
     st.text("- 해당 stage에서 사용하는 gpt model")
 
     st.markdown("## System Content")
-    sc_img = Image.open("system_content.PNG")
+    sc_img = Image.open("main_page_images/system_content.PNG")
     st.image(sc_img)
     st.text('''
             - system content prompt
@@ -28,7 +28,7 @@ def main_page():
             ''')
     
     st.markdown("## Teaching Prompt")
-    tp_img = Image.open("teaching_prompt.PNG")
+    tp_img = Image.open("main_page_images/teaching_prompt.PNG")
     st.image(tp_img)
     st.text('''
             - AI Teaching을 위한 prompt
@@ -36,7 +36,7 @@ def main_page():
             ''')
     
     st.markdown("## Test Case")
-    tc_img = Image.open("test_case.PNG")
+    tc_img = Image.open("main_page_images/test_case.PNG")
     st.image(tc_img)
     st.text('''
             - Teaching의 정확도를 확인하기 위한 Test Case
