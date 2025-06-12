@@ -1,12 +1,6 @@
 import streamlit as st
 
-from MZ_stage_3_for import MZ_stage_3_for
-from MZ_stage_3_command import MZ_stage_3_command
-from MZ_stage_4_nestedloop import MZ_stage_4_nestedloop
-from MZ_stage_4_while_notDone import MZ_stage_4_while_notDone
-from MZ_stage_5 import MZ_stage_5
-from MZ_stage_6 import MZ_stage_6
-from MZ_stage_7 import MZ_stage_7
+from MZ_stage_page import MZ_stage_page
 
 def MZ_main():
     stages = [
@@ -29,18 +23,4 @@ def MZ_main():
         st.session_state.pop("messages", None)  # 메시지 초기화
         st.session_state.previous_stage = selected_stage
 
-    # 각 페이지 연결
-    if selected_stage == 'MZ stage 3. 명령어 Teaching':
-        MZ_stage_3_command()
-    elif selected_stage == 'MZ stage 3. for문 Teaching':
-        MZ_stage_3_for()
-    elif selected_stage == 'MZ stage 4. 중첩반복문 Teaching':
-        MZ_stage_4_nestedloop()
-    elif selected_stage == 'MZ stage 4. while, NotDone() Teaching':
-        MZ_stage_4_while_notDone()
-    elif selected_stage == 'MZ stage 5. if문, 조건 명령어 Teaching':
-        MZ_stage_5()
-    elif selected_stage == 'MZ stage 6. else문 Teaching':
-        MZ_stage_6()
-    else:
-        MZ_stage_7()
+    MZ_stage_page(selected_stage)

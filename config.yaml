@@ -57,6 +57,9 @@ NP_stage_1:
   test_case_path: "test_cases/NP_stage_1.txt"
   test_case_image: "testcase_imgs/NP_stage1_testcase_img.PNG"
   test_case_label: "# NP01PY001V"
+  default_code_path: "default_codes/NP_stage_1.txt"
+  run_code_path: "run_codes/NP_stage_1_2_3.txt"
+  result_base_path: "result_bases/NP_stage_1.txt"
 
 NP_stage_2:
   system_content_path: "system_contents/NP_stage_2.txt"
@@ -64,6 +67,9 @@ NP_stage_2:
   test_case_path: "test_cases/NP_stage_2.txt"
   test_case_image: "testcase_imgs/NP_stage2_testcase_img.PNG"
   test_case_label: "# NP03PY001V"
+  default_code_path: "default_codes/NP_stage_2.txt"
+  run_code_path: "run_codes/NP_stage_1_2_3.txt"
+  result_base_path: "result_bases/NP_stage_2.txt"
 
 NP_stage_3:
   system_content_path: "system_contents/NP_stage_3.txt"
@@ -71,6 +77,9 @@ NP_stage_3:
   test_case_path: "test_cases/NP_stage_3.txt"
   test_case_image: "testcase_imgs/NP_stage3_testcase_img.PNG"
   test_case_label: "# NP04PY007"
+  default_code_path: "default_codes/NP_stage_3.txt"
+  run_code_path: "run_codes/NP_stage_1_2_3.txt"
+  result_base_path: "result_bases/NP_stage_3.txt"
 
 NP_stage_4:
   system_content_path: "system_contents/NP_stage_4.txt"
@@ -83,6 +92,9 @@ NP_stage_5:
   test_case_path: "test_cases/NP_stage_5.txt"
   test_case_image: "testcase_imgs/NP_stage5_testcase_img.PNG"
   test_case_label: "# NP06PY001V. 제약조건 : 반복문 1개, 커맨드 1개"
+  default_code_path: "default_codes/NP_stage_5.txt"
+  run_code_path: "run_codes/NP_stage_5_6_7_8.txt"
+  result_base_path: "result_bases/NP_stage_5.txt"
 
 NP_stage_6:
   system_content_path: "system_contents/NP_stage_6.txt"
@@ -90,6 +102,9 @@ NP_stage_6:
   test_case_path: "test_cases/NP_stage_6.txt"
   test_case_image: "testcase_imgs/NP_stage6_testcase_img.PNG"
   test_case_label: "# NP08PY001V. 제약조건 : 반복문 2개, 커맨드 1개"
+  default_code_path: "default_codes/NP_stage_6.txt"
+  run_code_path: "run_codes/NP_stage_5_6_7_8.txt"
+  result_base_path: "result_bases/NP_stage_6.txt"
 
 NP_stage_7:
   system_content_path: "system_contents/NP_stage_7.txt"
@@ -97,6 +112,9 @@ NP_stage_7:
   test_case_path: "test_cases/NP_stage_7.txt"
   test_case_image: "testcase_imgs/NP_stage7_testcase_img.PNG"
   test_case_label: "# 자체제작. 제약조건 : 반복문 2개, 커맨드 1개"
+  default_code_path: "default_codes/NP_stage_7.txt"
+  run_code_path: "run_codes/NP_stage_5_6_7_8.txt"
+  result_base_path: "result_bases/NP_stage_7.txt"
 
 NP_stage_8_1:
   system_content_path: "system_contents/NP_stage_8_1.txt"
@@ -104,6 +122,9 @@ NP_stage_8_1:
   test_case_path: "test_cases/NP_stage_8_1.txt"
   test_case_image: "testcase_imgs/NP_stage8_1_testcase_img.PNG"
   test_case_label: "# 자체제작. 제약조건 : 반복문 2개, 커맨드 1개"
+  default_code_path: "default_codes/NP_stage_8_1.txt"
+  run_code_path: "run_codes/NP_stage_5_6_7_8.txt"
+  result_base_path: "result_bases/NP_stage_8_1.txt"
 
 NP_stage_8_2:
   system_content_path: "system_contents/NP_stage_8_2.txt"
@@ -111,6 +132,9 @@ NP_stage_8_2:
   test_case_path: "test_cases/NP_stage_8_2.txt"
   test_case_image: "testcase_imgs/NP_stage8_2_testcase_img.PNG"
   test_case_label: "# NP08PY002. 제약조건: 반복문 1개, 커맨드 1개"
+  default_code_path: "default_codes/NP_stage_8_2.txt"
+  run_code_path: "run_codes/NP_stage_5_6_7_8.txt"
+  result_base_path: "result_bases/NP_stage_8_2.txt"
 
 NP_stage_8_3:
   system_content_path: "system_contents/NP_stage_8_3.txt"
@@ -118,3 +142,6 @@ NP_stage_8_3:
   test_case_path: "test_cases/NP_stage_8_3.txt"
   test_case_image: "testcase_imgs/NP_stage8_3_testcase_img.PNG"
   test_case_label: "# NP09PY019. 제약조건: 반복문 2개, 커맨드 1개"
+  default_code_path: "default_codes/NP_stage_8_3.txt"
+  run_code_path: "run_codes/NP_stage_5_6_7_8.txt"
+  result_base_path: "result_bases/NP_stage_8_3.txt"

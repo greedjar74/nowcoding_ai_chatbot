@@ -12,8 +12,20 @@ from run_test_case import run_test_case
 from handler_user_input import handler_user_input
 from reset_chat import reset_chat
 
-def NP_stage_8_2():
-    st.title("NP stage 8-2. 정사각형 패턴 Teaching")
+def NP_stage_1_2_3_5_6_7(stage):
+    st.title(stage)
+    config_name_dict = {
+        'NP stage 1. 문제, 명령어 Teaching': ['NP_stage_1', 'gpt-4.1-mini'],
+        'NP stage 2. 비교연산자 Teaching': ['NP_stage_2', 'gpt-4.1-mini'],
+        'NP stage 3. for문 범위 설정 Teaching': ['NP_stage_3', 'gpt-4.1-mini'],
+        'NP stage 5. 대각선 패턴 Teaching': ['NP_stage_5', 'o4-mini'],
+        'NP stage 6. 직사각형 패턴 Teaching': ['NP_stage_6', 'o4-mini'],
+        'NP stage 7. x, y 연산 패턴 Teaching': ['NP_stage_7', 'o4-mini'],
+        'NP stage 8-1. 종합(세로 직선 패턴)': ['NP_stage_8_1', 'o4-mini'],
+        'NP stage 8-2. 종합(정사각형 패턴)': ['NP_stage_8_2', 'o4-mini'],
+        'NP stage 8-3. 종합((x+y)%5==0 패턴)': ['NP_stage_8_3', 'o4-mini']
+    }
+    config_name = config_name_dict[stage][0]
 
     # 사이드바에서 API 키 입력 받기
     st.sidebar.header("API 설정")
@@ -25,12 +37,12 @@ def NP_stage_8_2():
 
     client = OpenAI(api_key=api_key_input)
 
-    gpt_model = 'o4-mini'
+    gpt_model = config_name_dict[stage][1]
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
-    
+
     st.sidebar.markdown("# Prompt")
-    config = load_config("NP_stage_8_2")
+    config = load_config(config_name)
     
     # system content 불러오기
     system_content = get_system_content(config['system_content_path'])
@@ -78,45 +90,15 @@ def NP_stage_8_2():
     if st.button("⚠️ 대화 리셋"):
         reset_chat()
 
-    # 기본 코드 설정
-    default_code = '''# 예시 코드
-def erase(x, y):
-    board[x][y] -= 1
-        
-board = [[1, 1, 1, 1, 1, 0, 0, 0, 0, 0], 
-[1, 1, 1, 1, 1, 0, 0, 0, 0, 0], 
-[1, 1, 1, 1, 1, 0, 0, 0, 0, 0], 
-[1, 1, 1, 1, 1, 0, 0, 0, 0, 0], 
-[1, 1, 1, 1, 1, 0, 0, 0, 0, 0], 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-    '''
+    with open(config['default_code_path'], 'r', encoding='utf-8') as f:
+        default_code = f.read()
+
 
     # 텍스트 영역에 기본값으로 코드 표시
     input_code = st.text_area("gpt가 생성한 코드를 입력하세요", value="", height=100)
 
-    run_code = ''' # 실행 코드
-for l in board:
-    print(l)
-
-re = True
-for i in range(10):
-    for j in range(10):
-        if board[i][j] != 0:
-            re = False
-            break
-    if not re:
-        break
-        
-print()
-if re:
-    print("모든 폭탄을 제거했습니다.")
-else :
-    print("폭탄을 제거하지 못헸습니다.")
-    '''
+    with open(config['run_code_path'], 'r', encoding='utf-8') as f:
+        run_code = f.read()
 
     code = default_code + '\n' + input_code + '\n' + run_code
     if st.button("코드 실행"):
@@ -128,19 +110,8 @@ else :
         except Exception as e:
             st.error(f"오류 발생: {e}")
         st.text("출력 결과:")
-        result = '''
-# before
-[1, 1, 1, 1, 1, 0, 0, 0, 0, 0] 
-[1, 1, 1, 1, 1, 0, 0, 0, 0, 0] 
-[1, 1, 1, 1, 1, 0, 0, 0, 0, 0] 
-[1, 1, 1, 1, 1, 0, 0, 0, 0, 0] 
-[1, 1, 1, 1, 1, 0, 0, 0, 0, 0] 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0] 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0] 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0] 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0] 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-#after
-''' 
-        st.code(result + output.getvalue())
+        with open(config['result_base_path'], 'r', encoding='utf-8') as f:
+            result_base = f.read()
+            
+        st.code(result_base + output.getvalue())

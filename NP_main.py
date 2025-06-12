@@ -1,15 +1,7 @@
 import streamlit as st
 
-from NP_stage1 import NP_stage_1
-from NP_stage2 import NP_stage_2
-from NP_stage3 import NP_stage_3
 from NP_stage4 import NP_stage_4
-from NP_stage5 import NP_stage_5
-from NP_stage6 import NP_stage_6
-from NP_stage7 import NP_stage_7
-from NP_stage8_1 import NP_stage_8_1
-from NP_stage8_2 import NP_stage_8_2
-from NP_stage8_3 import NP_stage_8_3
+from NP_stage_1_2_3_5_6_7 import NP_stage_1_2_3_5_6_7
 
 def NP_main():
     stages = ['NP stage 1. 문제, 명령어 Teaching',
@@ -32,23 +24,7 @@ def NP_main():
         st.session_state.pop("messages", None)  # 메시지 초기화
         st.session_state.previous_stage = selected_stage
 
-    if selected_stage == 'NP stage 1. 문제, 명령어 Teaching':
-        NP_stage_1()
-    elif selected_stage == 'NP stage 2. 비교연산자 Teaching':
-        NP_stage_2()
-    elif selected_stage == 'NP stage 3. for문 범위 설정 Teaching':
-        NP_stage_3()
-    elif selected_stage == 'NP stage 4. 제약조건 Teaching':
+    if selected_stage == 'NP stage 4. 제약조건 Teaching':
         NP_stage_4()
-    elif selected_stage == 'NP stage 5. 대각선 패턴 Teaching':
-        NP_stage_5()
-    elif selected_stage == 'NP stage 6. 직사각형 패턴 Teaching':
-        NP_stage_6()
-    elif selected_stage == 'NP stage 7. x, y 연산 패턴 Teaching':
-        NP_stage_7()
-    elif selected_stage == 'NP stage 8-1. 종합(세로 직선 패턴)':
-        NP_stage_8_1()
-    elif selected_stage == 'NP stage 8-2. 종합(정사각형 패턴)':
-        NP_stage_8_2()
-    else :
-        NP_stage_8_3()
+    else:
+        NP_stage_1_2_3_5_6_7(selected_stage)

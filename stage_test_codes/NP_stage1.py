@@ -12,8 +12,8 @@ from run_test_case import run_test_case
 from handler_user_input import handler_user_input
 from reset_chat import reset_chat
 
-def NP_stage_2():
-    st.title("NP stage 2. 비교연산자 Teaching")
+def NP_stage_1():
+    st.title("NP stage 1. 문제, 명령어 Teaching")
 
     # 사이드바에서 API 키 입력 받기
     st.sidebar.header("API 설정")
@@ -28,9 +28,9 @@ def NP_stage_2():
     gpt_model = 'gpt-4.1-mini'
     st.sidebar.markdown('# gpt model')
     st.sidebar.markdown(gpt_model)
-    
+
     st.sidebar.markdown("# Prompt")
-    config = load_config("NP_stage_2")
+    config = load_config("NP_stage_1")
     
     # system content 불러오기
     system_content = get_system_content(config['system_content_path'])
@@ -78,30 +78,15 @@ def NP_stage_2():
     if st.button("⚠️ 대화 리셋"):
         reset_chat()
 
-    # 기본 코드 설정
-    default_code = '''# 예시 코드
-def erase(x, y):
-    board[x][y] -= 1
-        
-board = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-    '''
+    with open(config['default_code_path'], 'r', encoding='utf-8') as f:
+        default_code = f.read()
+
 
     # 텍스트 영역에 기본값으로 코드 표시
     input_code = st.text_area("gpt가 생성한 코드를 입력하세요", value="", height=100)
 
-    run_code = ''' # 실행 코드
-for l in board:
-    print(l)
-    '''
+    with open(config['run_code_path'], 'r', encoding='utf-8') as f:
+        run_code = f.read()
 
     code = default_code + '\n' + input_code + '\n' + run_code
     if st.button("코드 실행"):
@@ -113,19 +98,8 @@ for l in board:
         except Exception as e:
             st.error(f"오류 발생: {e}")
         st.text("출력 결과:")
-        result = '''
-# before
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-[0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-[0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-[0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-[0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-#after
-''' 
-        st.code(result + output.getvalue())
+        with open(config['result_base_path'], 'r', encoding='utf-8') as f:
+            result_base = f.read()
+            
+        st.code(result_base + output.getvalue())

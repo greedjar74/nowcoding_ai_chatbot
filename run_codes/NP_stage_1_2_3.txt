@@ -1,0 +1,3 @@
+# 실행 코드
+for l in board:
+    print(l)
