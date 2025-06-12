@@ -10,6 +10,7 @@ from config_loader import load_config
 from print_chat_history import print_chat_histroy
 from run_test_case import run_test_case
 from handler_user_input import handler_user_input
+from reset_chat import reset_chat
 
 def NP_stage_1():
     st.title("NP stage 1. 문제, 명령어 Teaching")
@@ -75,11 +76,7 @@ def NP_stage_1():
 
     # 🔁 대화 리셋 버튼 (system 메시지 제외)
     if st.button("⚠️ 대화 리셋"):
-        system_message = next((m for m in st.session_state.messages if m["role"] == "system"), None)
-        st.session_state.messages = []
-        if system_message:
-            st.session_state.messages.append(system_message)
-        st.rerun()
+        reset_chat()
 
     # 기본 코드 설정
     default_code = '''# 예시 코드

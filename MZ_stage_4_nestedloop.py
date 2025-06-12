@@ -8,6 +8,7 @@ from config_loader import load_config
 from print_chat_history import print_chat_histroy
 from run_test_case import run_test_case
 from handler_user_input import handler_user_input
+from reset_chat import reset_chat
 
 def MZ_stage_4_nestedloop():
     st.title("MZ stage 4. 중첩반복문 Teaching")
@@ -72,8 +73,4 @@ def MZ_stage_4_nestedloop():
 
     # 🔁 대화 리셋 버튼 (system 메시지 제외)
     if st.button("⚠️ 대화 리셋"):
-        system_message = next((m for m in st.session_state.messages if m["role"] == "system"), None)
-        st.session_state.messages = []
-        if system_message:
-            st.session_state.messages.append(system_message)
-        st.rerun()
+        reset_chat()
