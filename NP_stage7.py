@@ -36,7 +36,8 @@ def NP_stage_7():
     with open('test_cases/NP_stage_7.txt', 'r', encoding='utf-8') as f:
         test_case = f.read()    
     st.sidebar.markdown("# Test Case")
-    st.sidebar.text(test_case)
+    st.sidebar.text('# 자체제작. 제약조건 : 반복문 2개, 커맨드 1개')
+    st.sidebar.image('testcase_imgs/NP_stage7_testcase_img.PNG')
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:

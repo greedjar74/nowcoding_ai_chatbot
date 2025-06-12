@@ -36,7 +36,8 @@ def NP_stage_3():
     with open('test_cases/NP_stage_3.txt', 'r', encoding='utf-8') as f:
         test_case = f.read()    
     st.sidebar.markdown("# Test Case")
-    st.sidebar.text(test_case)
+    st.sidebar.text('# NP04PY007')
+    st.sidebar.image('testcase_imgs/NP_stage3_testcase_img.PNG')
     
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:

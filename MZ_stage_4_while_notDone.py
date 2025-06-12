@@ -34,7 +34,8 @@ def MZ_stage_4_while_notDone():
     with open('test_cases/MZ_stage_4_while_notDone.txt', 'r', encoding='utf-8') as f:
         test_case = f.read()    
     st.sidebar.markdown("# Test Case")
-    st.sidebar.text(test_case)
+    st.sidebar.text('# MZ05PY001V')
+    st.sidebar.image('testcase_imgs/MZ_stage_4_while_notDone_testcase_img.PNG')
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
