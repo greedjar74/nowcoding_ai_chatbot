@@ -78,6 +78,28 @@ def NP_stage_5():
 
         st.session_state.messages.append({"role": "assistant", "content": response})
 
+    # Test Case 자동실행
+    if st.button("▶️ Test Case 실행"):
+        print(test_case)
+        st.session_state.messages.append({"role": "user", "content": test_case})
+        with st.chat_message("assistant"):
+            placeholder = st.empty()
+            placeholder.text("답변을 생성하고 있습니다...")
+
+            stream = client.chat.completions.create(
+                model=gpt_model,
+                messages=[
+                    {"role": m["role"], "content": m["content"]}
+                    for m in st.session_state.messages
+                ],
+                stream=True,
+            )
+            response = placeholder.write_stream(stream)
+
+            placeholder.code(response, language='python')
+
+        st.session_state.messages.append({"role": "assistant", "content": response})
+
     # 🔁 대화 리셋 버튼 (system 메시지 제외)
     if st.button("⚠️ 대화 리셋"):
         system_message = next((m for m in st.session_state.messages if m["role"] == "system"), None)
@@ -123,7 +145,7 @@ print()
 if re:
     print("모든 폭탄을 제거했습니다.")
 else :
-    print("폭탄을 제대로 제거하지 못헸습니다.")
+    print("폭탄을 제거하지 못헸습니다.")
     '''
 
     code = default_code + '\n' + input_code + '\n' + run_code
