@@ -1,14 +1,14 @@
 import streamlit as st
 from openai import OpenAI
 
-from get_system_content import get_system_content
-from get_teaching_prompt import get_teaching_prompt
-from get_test_case import get_test_case
-from config_loader import load_config
-from print_chat_history import print_chat_histroy
-from run_test_case import run_test_case
-from handler_user_input import handler_user_input
-from reset_chat import reset_chat
+from funcs.get_system_content import get_system_content
+from funcs.get_teaching_prompt import get_teaching_prompt
+from funcs.get_test_case import get_test_case
+from funcs.config_loader import load_config
+from funcs.print_chat_history import print_chat_histroy
+from funcs.run_test_case import run_test_case
+from funcs.handler_user_input import handler_user_input
+from funcs.reset_chat import reset_chat
 
 def NP_stage_4():
     st.title("NP stage 4. 제약조건 Teaching")

@@ -8,9 +8,9 @@ from get_teaching_prompt import get_teaching_prompt
 from get_test_case import get_test_case
 from config_loader import load_config
 from print_chat_history import print_chat_histroy
-from run_test_case import run_test_case
+from funcs.run_test_case import run_test_case
 from handler_user_input import handler_user_input
-from reset_chat import reset_chat
+from funcs.reset_chat import reset_chat
 
 def NP_stage_6():
     st.title("NP stage 6. 직사각형 패턴 Teaching")
