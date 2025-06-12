@@ -7,6 +7,7 @@ from get_test_case import get_test_case
 from config_loader import load_config
 from print_chat_history import print_chat_histroy
 from run_test_case import run_test_case
+from handler_user_input import handler_user_input
 
 def MZ_stage_3_for():
     st.title("MZ stage 3. for문 Teaching")
@@ -62,27 +63,7 @@ def MZ_stage_3_for():
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
-            st.text(prompt)
-
-        with st.chat_message("assistant"):
-            placeholder = st.empty()
-            placeholder.text("답변을 생성하고 있습니다...")
-
-            stream = client.chat.completions.create(
-                model=gpt_model,
-                messages=[
-                    {"role": m["role"], "content": m["content"]}
-                    for m in st.session_state.messages
-                ],
-                stream=True,
-            )
-            response = placeholder.write_stream(stream)
-
-            placeholder.code(response, language='python') # gpt가 생성한 답변은 python 형태로 출력
-
-        st.session_state.messages.append({"role": "assistant", "content": response})
+        handler_user_input(prompt, client, gpt_model)
 
     # Test Case 자동실행
     if st.button("▶️ Test Case 실행"):
