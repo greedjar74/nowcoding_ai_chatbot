@@ -1,0 +1,50 @@
+# 경로 설정
+
+MZ_stage_3_command:
+  system_content_path: "system_contents/MZ_stage_3_command.txt"
+  teaching_prompt_path: "input_contents/MZ_stage_3_command.txt"
+  test_case_path: "test_cases/MZ_stage_3_command.txt"
+  test_case_image: "testcase_imgs/MZ_stage_3_command_testcase_img.PNG"
+  test_case_label: "# MZ01PY001V"
+
+MZ_stage_3_for:
+  system_content_path: "system_contents/MZ_stage_3_command.txt"
+  teaching_prompt_path: "input_contents/MZ_stage_3_command.txt"
+  test_case_path: "test_cases/MZ_stage_3_for.txt"
+  test_case_image: "testcase_imgs/MZ_stage_3_for_testcase_img.PNG"
+  test_case_label: "# MZ02PY001V"
+
+MZ_stage_4_nestedloop:
+  system_content_path: "system_contents/MZ_stage_4_nestedloop.txt"
+  teaching_prompt_path: "input_contents/MZ_stage_4_nestedloop.txt"
+  test_case_path: "test_cases/MZ_stage_4_nestedloop.txt"
+  test_case_image: "testcase_imgs/MZ_stage_4_nested_testcase_img.PNG"
+  test_case_label: "# MZ05PY001V"
+
+MZ_stage_4_while_notDone:
+  system_content_path: "system_contents/MZ_stage_4_while_notDone.txt"
+  teaching_prompt_path: "input_contents/MZ_stage_4_while_notDone.txt"
+  test_case_path: "test_cases/MZ_stage_4_while_notDone.txt"
+  test_case_image: "testcase_imgs/MZ_stage_4_while_notDone_testcase_img.PNG"
+  test_case_label: "# MZ05PY001V"
+
+MZ_stage_5:
+  system_content_path: "system_contents/MZ_stage_5.txt"
+  teaching_prompt_path: "input_contents/MZ_stage_5.txt"
+  test_case_path: "test_cases/MZ_stage_5.txt"
+  test_case_image: "testcase_imgs/MZ_stage_5_testcase_img.PNG"
+  test_case_label: "# MZ06PY011"
+
+MZ_stage_6:
+  system_content_path: "system_contents/MZ_stage_6.txt"
+  teaching_prompt_path: "input_contents/MZ_stage_6.txt"
+  test_case_path: "test_cases/MZ_stage_6.txt"
+  test_case_image: "testcase_imgs/MZ_stage_6_testcase_img.PNG"
+  test_case_label: "# MZ08PY001V"
+
+MZ_stage_7:
+  system_content_path: "system_contents/MZ_stage_7.txt"
+  teaching_prompt_path: "input_contents/MZ_stage_7.txt"
+  test_case_path: "test_cases/MZ_stage_7.txt"
+  test_case_image: "testcase_imgs/MZ_stage_7_testcase_img.PNG"
+  test_case_label: "# MZ09PY018"
