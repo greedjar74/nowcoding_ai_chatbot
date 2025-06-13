@@ -9,6 +9,7 @@ from funcs.print_chat_history import print_chat_histroy
 from funcs.run_test_case import run_test_case
 from funcs.handler_user_input import handler_user_input
 from funcs.reset_chat import reset_chat
+from funcs.get_base_prompt import get_base_prompt
 
 def MZ_stage_page(stage):      
     st.title(stage)
@@ -66,6 +67,7 @@ def MZ_stage_page(stage):
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
+        st.session_state.input_count = 0
         st.session_state.messages = [
             {"role": "system", "content": system_content}
         ]
@@ -75,7 +77,19 @@ def MZ_stage_page(stage):
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
-        handler_user_input(prompt, client, gpt_model)
+        st.session_state.input_count += 1
+
+        if st.session_state.input_count == 1:
+            front = get_base_prompt(config["first_teaching_base_front"])
+            back = get_base_prompt(config["first_teaching_base_back"])
+
+        else :
+            front = get_base_prompt(config["second_teaching_base_front"])
+            back = get_base_prompt(config["second_teaching_base_back"])
+
+        prompt_with_base = front + prompt + back
+
+        handler_user_input(prompt_with_base, client, gpt_model)
 
     # Test Case 자동실행
     if st.button("▶️ Test Case 실행"):
@@ -84,4 +98,5 @@ def MZ_stage_page(stage):
 
     # 🔁 대화 리셋 버튼 (system 메시지 제외)
     if st.button("⚠️ 대화 리셋"):
+        st.session_state.input_count = 0
         reset_chat()
