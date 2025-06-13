@@ -9,8 +9,8 @@ MZ_stage_3_command:
   test_case_label: "# MZ01PY001V"
 
 MZ_stage_3_for:
-  system_content_path: "system_contents/MZ_stage_3_command.txt"
-  teaching_prompt_path: "input_contents/MZ_stage_3_command.txt"
+  system_content_path: "system_contents/MZ_stage_3_for.txt"
+  teaching_prompt_path: "input_contents/MZ_stage_3_for.txt"
   test_case_path: "test_cases/MZ_stage_3_for.txt"
   test_case_image: "testcase_imgs/MZ_stage_3_for_testcase_img.PNG"
   test_case_label: "# MZ02PY001V"
