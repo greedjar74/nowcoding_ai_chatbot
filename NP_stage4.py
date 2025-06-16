@@ -9,6 +9,7 @@ from funcs.print_chat_history import print_chat_histroy
 from funcs.run_test_case import run_test_case
 from funcs.handler_user_input import handler_user_input
 from funcs.reset_chat import reset_chat
+from funcs.get_base_prompt import get_base_prompt
 
 def NP_stage_4():
     st.title("NP stage 4. 제약조건 Teaching")
@@ -55,6 +56,7 @@ def NP_stage_4():
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
+        st.session_state.input_count = 0
         st.session_state.messages = [
             {"role": "system", "content": system_content}
         ]
@@ -64,10 +66,18 @@ def NP_stage_4():
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
-        handler_user_input(prompt, client, gpt_model)
+        st.session_state.input_count += 1
+
+        if st.session_state.input_count == 1:
+            front = get_base_prompt(config["first_teaching_base_front"])
+            back = get_base_prompt(config["first_teaching_base_back"])
+
+        prompt_with_base = front + prompt + back
+
+        handler_user_input(prompt_with_base, client, gpt_model)
 
     # Test Case 자동실행
-    if st.button("▶️ Test Case 실행"):
+    if st.button("▶️ Test Case 실행 (AI는 실수를 할 수 있습니다.)"):
         print(test_case)
         run_test_case(test_case, client, gpt_model)
     

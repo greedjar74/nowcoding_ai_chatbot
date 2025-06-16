@@ -92,7 +92,7 @@ def MZ_stage_page(stage):
         handler_user_input(prompt_with_base, client, gpt_model)
 
     # Test Case 자동실행
-    if st.button("▶️ Test Case 실행"):
+    if st.button("▶️ Test Case 실행 (AI는 실수를 할 수 있습니다.)"):
         print(test_case)
         run_test_case(test_case, client, gpt_model)
 
