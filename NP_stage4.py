@@ -83,4 +83,5 @@ def NP_stage_4():
     
     # 🔁 대화 리셋 버튼 (system 메시지 제외)
     if st.button("⚠️ 대화 리셋"):
+        st.session_state.input_count = 0
         reset_chat()
