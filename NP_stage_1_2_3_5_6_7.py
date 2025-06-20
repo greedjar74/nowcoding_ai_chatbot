@@ -71,7 +71,6 @@ def NP_stage_1_2_3_5_6_7(stage):
 
     # ✅ system message를 포함한 초기화
     if "messages" not in st.session_state:
-        st.session_state.input_count = 0
         st.session_state.messages = [
             {"role": "system", "content": system_content}
         ]
@@ -81,33 +80,25 @@ def NP_stage_1_2_3_5_6_7(stage):
 
     # 사용자 입력 처리
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
-        st.session_state.input_count += 1
-
-        if st.session_state.input_count == 1:
-            front = get_base_prompt(config["first_teaching_base_front"])
+        if '<명령어 설명>' in prompt:
             back = get_base_prompt(config["first_teaching_base_back"])
 
-        elif st.session_state.input_count == 2:
-            front = get_base_prompt(config["second_teaching_base_front"])
+        elif '<문제 설명>' in prompt:
             back = get_base_prompt(config["second_teaching_base_back"])
 
-        elif st.session_state.input_count == 3:
-            front = get_base_prompt(config["third_teaching_base_front"])
+        elif '<범위설정 설명>' in prompt:
             back = get_base_prompt(config["third_teaching_base_back"])
 
-        elif st.session_state.input_count == 4:
-            front = get_base_prompt(config["fourth_teaching_base_front"])
+        elif '<제약조건 설명>' in prompt:
             back = get_base_prompt(config["fourth_teaching_base_back"])
 
-        elif st.session_state.input_count == 5:
-            front = get_base_prompt(config["fifth_teaching_base_front"])
+        elif '<패턴 설명>' in prompt:
             back = get_base_prompt(config["fifth_teaching_base_back"])
 
         else :
-            front = get_base_prompt(config["sixth_teaching_base_front"])
             back = get_base_prompt(config["sixth_teaching_base_back"])
 
-        prompt_with_base = front + prompt + back
+        prompt_with_base = prompt + back
 
         handler_user_input(prompt_with_base, client, gpt_model)
 
@@ -118,7 +109,6 @@ def NP_stage_1_2_3_5_6_7(stage):
 
     # 🔁 대화 리셋 버튼 (system 메시지 제외)
     if st.button("⚠️ 대화 리셋"):
-        st.session_state.input_count = 0
         reset_chat()
 
     with open(config['default_code_path'], 'r', encoding='utf-8') as f:
