@@ -74,10 +74,8 @@ MZ_stage_7:
 NP_stage_1:
   system_content_path: "system_contents/NP_stage_1.txt"
   teaching_prompt_path: "input_contents/NP_stage_1.txt"
-  first_teaching_base_front: teaching_base\NP_stage_1_command_front.txt
-  first_teaching_base_back: teaching_base\NP_stage_1_command_back.txt
-  second_teaching_base_front: teaching_base\NP_stage_1_prob_front.txt
-  second_teaching_base_back: teaching_base\NP_stage_1_prob_back.txt
+  first_teaching_base_back: "teaching_base/NP_stage_1_command_back.txt"
+  second_teaching_base_back: "teaching_base/NP_stage_1_prob_back.txt"
   test_case_path: "test_cases/NP_stage_1.txt"
   test_case_image: "testcase_imgs/NP_stage1_testcase_img.PNG"
   test_case_label: "# NP01PY001V"
@@ -88,8 +86,7 @@ NP_stage_1:
 NP_stage_2:
   system_content_path: "system_contents/NP_stage_2.txt"
   teaching_prompt_path: "input_contents/NP_stage_2.txt"
-  first_teaching_base_front: teaching_base\NP_stage_2_front.txt
-  first_teaching_base_back: teaching_base\NP_stage_2_back.txt
+  sixth_teaching_base_back: "teaching_base/NP_stage_2_back.txt"
   test_case_path: "test_cases/NP_stage_2.txt"
   test_case_image: "testcase_imgs/NP_stage2_testcase_img.PNG"
   test_case_label: "# NP03PY001V"
@@ -100,8 +97,7 @@ NP_stage_2:
 NP_stage_3:
   system_content_path: "system_contents/NP_stage_3.txt"
   teaching_prompt_path: "input_contents/NP_stage_3.txt"
-  first_teaching_base_front: teaching_base/NP_stage_3_front.txt
-  first_teaching_base_back: teaching_base/NP_stage_3_back.txt
+  third_teaching_base_back: "teaching_base/NP_stage_3_back.txt"
   test_case_path: "test_cases/NP_stage_3.txt"
   test_case_image: "testcase_imgs/NP_stage3_testcase_img.PNG"
   test_case_label: "# NP04PY007"
@@ -112,15 +108,13 @@ NP_stage_3:
 NP_stage_4:
   system_content_path: "system_contents/NP_stage_4.txt"
   teaching_prompt_path: "input_contents/NP_stage_4.txt"
-  first_teaching_base_front: teaching_base\NP_stage_4_front.txt
-  first_teaching_base_back: teaching_base\NP_stage_4_back.txt
+  first_teaching_base_back: "teaching_base/NP_stage_4_back.txt"
   test_case_path: "test_cases/NP_stage_4.txt"
 
 NP_stage_5:
   system_content_path: "system_contents/NP_stage_5.txt"
   teaching_prompt_path: "input_contents/NP_stage_5.txt"
-  first_teaching_base_front: teaching_base\NP_stage_5_front.txt
-  first_teaching_base_back: teaching_base\NP_stage_5_back.txt
+  fifth_teaching_base_back: "teaching_base/NP_stage_5_back.txt"
   test_case_path: "test_cases/NP_stage_5.txt"
   test_case_image: "testcase_imgs/NP_stage5_testcase_img.PNG"
   test_case_label: "# NP06PY001V. 제약조건 : 반복문 1개, 커맨드 1개"
@@ -131,8 +125,7 @@ NP_stage_5:
 NP_stage_6:
   system_content_path: "system_contents/NP_stage_6.txt"
   teaching_prompt_path: "input_contents/NP_stage_6.txt"
-  first_teaching_base_front: teaching_base\NP_stage_6_front.txt
-  first_teaching_base_back: teaching_base\NP_stage_6_back.txt
+  fifth_teaching_base_back: "teaching_base/NP_stage_6_back.txt"
   test_case_path: "test_cases/NP_stage_6.txt"
   test_case_image: "testcase_imgs/NP_stage6_testcase_img.PNG"
   test_case_label: "# NP08PY001V. 제약조건 : 반복문 2개, 커맨드 1개"
@@ -143,8 +136,7 @@ NP_stage_6:
 NP_stage_7:
   system_content_path: "system_contents/NP_stage_7.txt"
   teaching_prompt_path: "input_contents/NP_stage_7.txt"
-  first_teaching_base_front: teaching_base\NP_stage_7_front.txt
-  first_teaching_base_back: teaching_base\NP_stage_7_back.txt
+  fifth_teaching_base_back: "teaching_base/NP_stage_7_back.txt"
   test_case_path: "test_cases/NP_stage_7.txt"
   test_case_image: "testcase_imgs/NP_stage7_testcase_img.PNG"
   test_case_label: "# 자체제작. 제약조건 : 반복문 2개, 커맨드 1개"
@@ -155,15 +147,10 @@ NP_stage_7:
 NP_stage_8_1:
   system_content_path: "system_contents/NP_stage_8_1.txt"
   teaching_prompt_path: "input_contents/NP_stage_8_1.txt"
-  first_teaching_base_front: "teaching_base/NP_stage_8_1_1_front.txt"
   first_teaching_base_back: "teaching_base/NP_stage_8_1_1_back.txt"
-  second_teaching_base_front: "teaching_base/NP_stage_8_1_2_front.txt"
   second_teaching_base_back: "teaching_base/NP_stage_8_1_2_back.txt"
-  third_teaching_base_front: "teaching_base/NP_stage_8_1_3_front.txt"
   third_teaching_base_back: "teaching_base/NP_stage_8_1_3_back.txt"
-  fourth_teaching_base_front: "teaching_base/NP_stage_8_1_4_front.txt"
   fourth_teaching_base_back: "teaching_base/NP_stage_8_1_4_back.txt"
-  fifth_teaching_base_front: "teaching_base/NP_stage_8_1_5_front.txt"
   fifth_teaching_base_back: "teaching_base/NP_stage_8_1_5_back.txt"
   test_case_path: "test_cases/NP_stage_8_1.txt"
   test_case_image: "testcase_imgs/NP_stage8_1_testcase_img.PNG"
@@ -175,15 +162,10 @@ NP_stage_8_1:
 NP_stage_8_2:
   system_content_path: "system_contents/NP_stage_8_2.txt"
   teaching_prompt_path: "input_contents/NP_stage_8_2.txt"
-  first_teaching_base_front: "teaching_base/NP_stage_8_1_1_front.txt"
   first_teaching_base_back: "teaching_base/NP_stage_8_1_1_back.txt"
-  second_teaching_base_front: "teaching_base/NP_stage_8_1_2_front.txt"
   second_teaching_base_back: "teaching_base/NP_stage_8_1_2_back.txt"
-  third_teaching_base_front: "teaching_base/NP_stage_8_1_3_front.txt"
   third_teaching_base_back: "teaching_base/NP_stage_8_1_3_back.txt"
-  fourth_teaching_base_front: "teaching_base/NP_stage_8_1_4_front.txt"
   fourth_teaching_base_back: "teaching_base/NP_stage_8_1_4_back.txt"
-  fifth_teaching_base_front: "teaching_base/NP_stage_8_1_5_front.txt"
   fifth_teaching_base_back: "teaching_base/NP_stage_8_1_5_back.txt"
   test_case_path: "test_cases/NP_stage_8_2.txt"
   test_case_image: "testcase_imgs/NP_stage8_2_testcase_img.PNG"
@@ -195,20 +177,12 @@ NP_stage_8_2:
 NP_stage_8_3:
   system_content_path: "system_contents/NP_stage_8_3.txt"
   teaching_prompt_path: "input_contents/NP_stage_8_3.txt"
-
-  first_teaching_base_front: "teaching_base/NP_stage_8_1_1_front.txt"
   first_teaching_base_back: "teaching_base/NP_stage_8_1_1_back.txt"
-  second_teaching_base_front: "teaching_base/NP_stage_8_1_2_front.txt"
   second_teaching_base_back: "teaching_base/NP_stage_8_1_2_back.txt"
-  third_teaching_base_front: "teaching_base/NP_stage_8_3_3_front.txt"
   third_teaching_base_back: "teaching_base/NP_stage_8_3_3_back.txt"
-  fourth_teaching_base_front: "teaching_base/NP_stage_8_1_3_front.txt"
   fourth_teaching_base_back: "teaching_base/NP_stage_8_1_3_back.txt"
-  fifth_teaching_base_front: "teaching_base/NP_stage_8_1_4_front.txt"
   fifth_teaching_base_back: "teaching_base/NP_stage_8_1_4_back.txt"
-  sixth_teaching_base_front: "teaching_base/NP_stage_8_1_5_front.txt"
   sixth_teaching_base_back: "teaching_base/NP_stage_8_1_5_back.txt"
-
   test_case_path: "test_cases/NP_stage_8_3.txt"
   test_case_image: "testcase_imgs/NP_stage8_3_testcase_img.PNG"
   test_case_label: "# NP09PY019. 제약조건: 반복문 2개, 커맨드 1개"

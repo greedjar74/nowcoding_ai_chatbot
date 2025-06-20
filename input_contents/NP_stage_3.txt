@@ -1,3 +1,5 @@
+<범위설정 설명>
+
 range(start, end, term): 'start'부터 'end'미만까지 'term'간격으로 증가한다.
 
 [예시]
