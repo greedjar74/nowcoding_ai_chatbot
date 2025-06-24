@@ -78,23 +78,18 @@ def NP_stage_1_2_3_5_6_7(stage):
     # 이전 메시지 출력
     print_chat_histroy(st.session_state.messages)
 
-    # 사용자 입력 처리
+    # 사용자 입력 처리 -> 이 부분 함수로 만들어야됨
     if prompt := st.chat_input("AI Teaching을 진행하세요!"):
         if '<명령어 설명>' in prompt:
             back = get_base_prompt(config["first_teaching_base_back"])
-
         elif '<문제 설명>' in prompt:
             back = get_base_prompt(config["second_teaching_base_back"])
-
         elif '<범위설정 설명>' in prompt:
             back = get_base_prompt(config["third_teaching_base_back"])
-
         elif '<제약조건 설명>' in prompt:
             back = get_base_prompt(config["fourth_teaching_base_back"])
-
         elif '<패턴 설명>' in prompt:
             back = get_base_prompt(config["fifth_teaching_base_back"])
-
         else :
             back = get_base_prompt(config["sixth_teaching_base_back"])
 
