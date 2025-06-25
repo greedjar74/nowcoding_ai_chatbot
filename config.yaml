@@ -154,7 +154,7 @@ NP_stage_8_1:
   fifth_teaching_base_back: "teaching_base/NP_stage_8_1_5_back.txt"
   test_case_path: "test_cases/NP_stage_8_1.txt"
   test_case_image: "testcase_imgs/NP_stage8_1_testcase_img.PNG"
-  test_case_label: "# 자체제작. 제약조건 : 반복문 2개, 커맨드 1개"
+  test_case_label: "# 자체제작. 제약조건 : 반복문 1개, 커맨드 1개"
   default_code_path: "default_codes/NP_stage_8_1.txt"
   run_code_path: "run_codes/NP_stage_1_2_3_5_6_7_8.txt"
   result_base_path: "result_bases/NP_stage_8_1.txt"
